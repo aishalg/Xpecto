@@ -2,7 +2,7 @@
 
 Xpecto - Technical Fest of IIT Mandi
 
-### Contribute by making changes into your own created branch NOT directly from the master branch
+### Contribute by making changes into your own created branch, NOT directly from the master branch
 
 ### Instructions to run the application
 
