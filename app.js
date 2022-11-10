@@ -1,4 +1,6 @@
 const express = require("express");
+const morgan = require("morgan");
+
 const eventRouter = require("./routes/eventRoutes");
 const faqRouter = require("./routes/faqRoutes");
 const keytalkRouter = require("./routes/keytalkRoutes");
@@ -11,6 +13,11 @@ const workshopRouter = require("./routes/workshopRoutes");
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Development logging
+if (process.env.NODE_ENV === "development") {
+    app.use(morgan("dev"));
+}
 
 // DEFINING ALL ROUTES
 app.use("/api/events", eventRouter);
