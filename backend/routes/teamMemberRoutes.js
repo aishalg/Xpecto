@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const {} = require("./../controller/teamMemberController");
+const {} = require("./../controllers/teamMemberController");
 
 module.exports = router;

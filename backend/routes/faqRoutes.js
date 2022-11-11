@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const {} = require("./../controller/keytalkController");
+const {} = require("./../controllers/faqController");
 
 module.exports = router;

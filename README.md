@@ -12,10 +12,10 @@ Xpecto - Technical Fest of IIT Mandi
 git clone [FORKED_REPO_URL]
 ```
 
-2. Move into the directory using -
+2. Move into the backend directorydirectory using -
 
 ```bash
-cd xpecto
+cd Xpecto/backend
 ```
 
 3. Then install all the dependencies from the package.json using the command
