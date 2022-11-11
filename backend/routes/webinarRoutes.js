@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const {} = require("./../controller/webinarController");
+const {} = require("./../controllers/webinarController");
 
 module.exports = router;

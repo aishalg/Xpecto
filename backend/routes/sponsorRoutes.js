@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const {} = require("./../controller/sponsorController");
+const {} = require("./../controllers/sponsorController");
 
 module.exports = router;
