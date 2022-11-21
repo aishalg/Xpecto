@@ -1,18 +1,33 @@
+
+
+
 const Event = require("./../models/eventModel");
 
-exports.getAll=async(req,res)=>{
+exports.getEvents=async(req,res)=>{
  try {
     const allevents= await Event.find();
     context={
         status:"success",
         data:allevents
     }
-    res.status(200).send(context);
+    res.status(200).json(context);
  } catch (error) {
-    res.status(400).send({Error:err});
+    res.status(400).json({Error:err});
  }
 }
 
+exports.getEvent=async(req,res)=>{
+    try {
+        const event= await Event.findOne({_id:req.params.id});
+    context={
+        status:"success",
+        data:event
+    }
+    res.status(200).json(context);
+    } catch (error) {
+        res.status(400).json({Error:err}); 
+    }
+}
 exports.addevent=async(req,res)=>{
     try {
         const newdata={
@@ -52,16 +67,15 @@ exports.addevent=async(req,res)=>{
             teamMaxSize:req.body.teamMaxsize,
             teamMinSize:req.body.teamMinsize
         } 
-        const add=Event.insertone(newdata);
-        res.status(200).send({status:"success"})
+        const add=Event.insertOne(newdata);
+        res.status(200).json({status:"success"})
     } catch (error) {
-        res.status(400).send({Error:err}); 
+        res.status(400).json({Error:err}); 
     }
 }
 
 exports.updateEvent=async()=>{
     try {
-        const eventid=req.params.id;
         const newdata={
             club:req.body.club,
             info:req.body.info,
@@ -99,11 +113,11 @@ exports.updateEvent=async()=>{
             teamMaxSize:req.body.teamMaxsize,
             teamMinSize:req.body.teamMinsize
         } 
-        const add=Event.updateOne(newdata);
-        res.status(200).send({status:"success"})
+        const add=Event.updateOne({_id:req.params.id},newdata);
+        res.status(200).json({status:"success"})
         
     } catch (error) {
-        res.status(400).send({Error:err});
+        res.status(400).json({Error:err});
 
     }
     
@@ -112,17 +126,17 @@ exports.deleteOneEvent=async()=>{
     try {
         const eventsid=req.params.id;
         const s= await Event.deleteOne({_id:eventsid});
-        res.status(200).send({status:"success"})
+        res.status(200).json({status:"success"})
     } catch (error) {
-        res.status(400).send({Error:err});
+        res.status(400).json({Error:err});
     }
 }
 
 exports.deleteAllEvent=async()=>{
     try {
         const s= await Event.deleteMany({});
-        res.status(200).send({status:"success"})
+        res.status(200).json({status:"success"})
     } catch (error) {
-        res.status(400).send({Error:err});
+        res.status(400).json({Error:err});
     }
 }
