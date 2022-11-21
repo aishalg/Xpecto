@@ -1,7 +1,14 @@
 const mongoose = require("mongoose");
 
 const faqSchema = mongoose.Schema({
-    // write your schema here
+    question: {
+        type: String,
+        required: true,
+    },
+    answer: {
+        type: String,
+        required: true,
+    },
 });
 
 const Faq = mongoose.model("Faq", faqSchema);
