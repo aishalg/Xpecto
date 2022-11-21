@@ -122,7 +122,7 @@ exports.updateEvent=async()=>{
     }
     
 }
-exports.deleteOneEvent=async()=>{
+exports.deleteEvent=async()=>{
     try {
         const eventsid=req.params.id;
         const s= await Event.deleteOne({_id:eventsid});
@@ -132,11 +132,3 @@ exports.deleteOneEvent=async()=>{
     }
 }
 
-exports.deleteAllEvent=async()=>{
-    try {
-        const s= await Event.deleteMany({});
-        res.status(200).json({status:"success"})
-    } catch (error) {
-        res.status(400).json({Error:err});
-    }
-}
