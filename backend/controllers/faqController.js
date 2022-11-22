@@ -21,10 +21,10 @@ exports.getFaqs= async(req, res, next) =>{
 
 	exports.getOneFaq=async(req,res, next)=>{
     try {
-        const OneFaq= await Faq.findOne({_id:req.params.id});
+        const OneFaq = await Faq.findOne({_id:req.params.id});
     context={
         status:"success",
-        data:OneFaq
+        data: OneFaq
     }
     res.status(200).json(context);
     } catch (error) {
