@@ -5,7 +5,7 @@ exports.getFaqs= async(req, res, next) =>{
     try{
         const faqs= await Faq.find();
 
-        const context={
+        context={
             status:"success",
             data: faqs,
 
