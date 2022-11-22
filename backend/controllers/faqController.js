@@ -27,6 +27,7 @@ exports.getFaqs= async(req, res, next) =>{
         data: OneFaq
     }
     res.status(200).json(context);
+	    res.status(200).json({status:"success"})
     } catch (error) {
         res.status(400).json({Error:err}); 
     }
