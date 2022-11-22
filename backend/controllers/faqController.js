@@ -19,6 +19,19 @@ exports.getFaqs= async(req, res, next) =>{
     }
 }
 
+	exports.getOneFaq=async(req,res, next)=>{
+    try {
+        const OneFaq= await Faq.findOne({_id:req.params.id});
+    context={
+        status:"success",
+        data:OneFaq
+    }
+    res.status(200).json(context);
+    } catch (error) {
+        res.status(400).json({Error:err}); 
+    }
+}
+
 
 exports.addFaqs= async(req, res, next)=> {
     try{
