@@ -1,7 +1,7 @@
 const Faq = require("./../models/faqModel");
 
 
-exports.getAll= async(req, res, next) =>{
+exports.getFaqs= async(req, res, next) =>{
     try{
         const faqs= await Faq.find();
 
@@ -19,21 +19,7 @@ exports.getAll= async(req, res, next) =>{
     }
 }
 
-// exports.updateFaqs= async(req, res, next) =>{
-//     try{
-//         const Faqs= await Faqs.findOne(
-//             {_id:req.params.id}
-//         );
-//         const context={
-//             status:"success",
-//             data: Faqs,
-//         };
-//         res.status(200).json(context);
-//     }
-//     catch(err){
-//         res.status(400).json({Error: err});
-//     }
-// }
+
 exports.addFaqs= async(req, res, next)=> {
     try{
         const newData={
@@ -82,15 +68,4 @@ exports.deleteFaqs= async(req, res, next)=> {
         res.status(400).json({Error: err});
     }
 };
-
-exports.deleteAllFaqs= async(req, res, next)=> {
-    try{
-      
-        const upd= await Faqs.deleteMany({})
-    }
-    catch(err){
-        res.status(400).json({Error: err});
-    }
-};
-
 
