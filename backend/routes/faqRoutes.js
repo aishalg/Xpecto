@@ -3,10 +3,10 @@ const router = express.Router();
 
 const {getAll, addFaqs, newUpdate, deleteFaqs, deleteAllFaqs} = require("./../controllers/faqController");
 router.route("/").get(getFaqs)
-.post(eventController.addFaqs);
-router.route("/:id").get(eventController.getFaqs)
-.delete(eventController.deleteFaqs)
-.patch(eventController.updateFaqs);
+.post(faqsController.addFaqs);
+router.route("/:id").get(faqsController.getFaqs)
+.delete(faqsController.deleteFaqs)
+.patch(faqsController.updateFaqs);
 // router.route("/deleteAllevents").post(eventController.deleteAllFaqs)
 
 
