@@ -11,6 +11,7 @@ exports.getFaqs= async(req, res, next) =>{
 
         };
         res.status(200).json(context);
+	  
 
     }
    
@@ -27,7 +28,7 @@ exports.getFaqs= async(req, res, next) =>{
         data: OneFaq
     }
     res.status(200).json(context);
-	    res.status(200).json({status:"success"})
+	    
     } catch (error) {
         res.status(400).json({Error:err}); 
     }
@@ -46,6 +47,7 @@ exports.addFaqs= async(req, res, next)=> {
             
         }
         const upd= await Faqs.insertOne( newData)
+	 res.status(200).json({status:"success"})
     }
     catch(err){
         res.status(400).json({Error: err});
@@ -67,6 +69,7 @@ exports.newUpdate= async(req, res, next)=> {
             }
         }
         const upd= await Faqs.updateOne({_id:req.params.id}, newData)
+	 res.status(200).json({status:"success"})
     }
     catch(err){
         res.status(400).json({Error: err});
@@ -77,6 +80,7 @@ exports.deleteFaqs= async(req, res, next)=> {
     try{
        
         const upd= await Faqs.deleteOne({_id:req.params.id})
+	 res.status(200).json({status:"success"})
     }
     catch(err){
         res.status(400).json({Error: err});
