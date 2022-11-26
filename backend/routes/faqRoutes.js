@@ -1,6 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const {} = require("./../controllers/faqController");
+const faqController = require("./../controllers/faqController");
+router.route("/").get(faqController.getFaqs)
+.post(faqController.addFaqs);
+router.route("/:id").get(faqController.getOneFaq)
+.delete(faqController.deleteFaqs)
+.patch(faqController.updateFaqs);
+
+
+
 
 module.exports = router;
