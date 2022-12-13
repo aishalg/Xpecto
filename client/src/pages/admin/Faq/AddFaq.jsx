@@ -13,10 +13,10 @@ const AddFaq = () => {
     } 
     
     return <>
-    <div className={style["grid-container"]} style={{marginTop:"50px"}}>
+   
     <div className={style["faqbutton"]}>
     
-    </div> 
+  
     <Popup trigger={<Button variant="outlined" style={{marginLeft:"20px"}} >Add Faq</Button>
 } position="bottom center">
     
