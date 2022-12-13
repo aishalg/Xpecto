@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./Event.module.css";
 import axios from "axios";
-import Oneevent from "./Oneevent.component";
-import AddEvent from "./Eventadd.component";
+import Oneevent from "./Oneevent";
+import AddEvent from "./Eventadd";
 const Event = () => {
         const [allevents,setAllevents]=useState([]);
 //         useEffect(()=>{
