@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
     try {
+        // const Database = "mongodb://localhost:27017/xpecto"
         const Database = process.env.DATABASE_URI.replace(
             "<password>",
             process.env.DATABASE_PASSWORD
