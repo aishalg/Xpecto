@@ -22,6 +22,14 @@
     margin: 10px;
     margin-bottom: 40px;
 }
+.boldname{
+    font-weight: 700;
+    font-size:medium;
+}
+.header{
+    display: flex;
+    justify-content: center;
+}
 .formcontainer{
     display: grid;
     grid-template-columns:auto auto auto auto ;
@@ -30,7 +38,4 @@
 }
 .textfield{
 width: 100%;
-}
-.gridrow{
-
 }
