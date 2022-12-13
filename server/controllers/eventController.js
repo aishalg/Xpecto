@@ -30,47 +30,13 @@ exports.getEvent=async(req,res)=>{
 }
 exports.addevent=async(req,res)=>{
     try {
-        const newdata={
-            club:req.body.club,
-            info:req.body.info,
-            name:req.body.info,
-            oneline_content:req.body.info,
-            rest_content:req.body.rest_content,
-            event_image:req.body.event_image,
-            rulebook_link:req.body.rulebook,
-            description:req.body.description,
-            problemset_link:req.body.problemset_link,
-            createdAt:req.body.createdAt,
-            start_time: {
-                day:req.body.start_time_day,
-                time:req.body.start_time_time
-            },
-            end_time: {
-                day:req.body.end_time_day,
-                time: req.body.end_time_time
-            },
-            prices: {
-                first:req.body.firstprice,
-                second:req.body.sencondprice,
-                third:req.body.thirdprice
-            },
-            coordinators: {
-                first: {
-                    name:req.body.firstcoordinators,
-                    contact:req.body.firstcoordinatorscontact
-                },
-                second: {
-                    name:req.body.secondcoordinators,
-                    contact:req.body.secondcoordinatorscontact
-                },
-            },
-            teamMaxSize:req.body.teamMaxsize,
-            teamMinSize:req.body.teamMinsize
-        } 
-        const add=Event.insertOne(newdata);
+        
+        const newdata=req.body;
+        const response=Event.create(newdata)
         res.status(200).json({status:"success"})
     } catch (error) {
-        res.status(400).json({Error:err}); 
+        res.status(400).json({Error:error});
+        console.log("Erorr occure at event added") 
     }
 }
 

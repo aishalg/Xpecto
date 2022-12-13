@@ -20,7 +20,7 @@ exports.getFaqs= async(req, res, next) =>{
     }
 }
 
-	exports.getOneFaq=async(req,res, next)=>{
+exports.getOneFaq=async(req,res, next)=>{
     try {
         const OneFaq = await Faq.findOne({_id:req.params.id});
     context={
@@ -57,7 +57,7 @@ exports.addFaqs= async(req, res, next)=> {
 
 
 
-exports.newUpdate= async(req, res, next)=> {
+exports.UpdateFaqs= async(req, res, next)=> {
     try{
         const newData={
             $set:{
