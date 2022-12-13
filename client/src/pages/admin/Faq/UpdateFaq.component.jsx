@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./Event.module.css";
+import styles from "./Faq.module.css";
 import { Button,TextField,Grid,TextareaAutosize} from "@mui/material";
 import { useState } from "react";
 import axios from 'axios';
