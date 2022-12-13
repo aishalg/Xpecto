@@ -99,14 +99,14 @@ const eventSchema = mongoose.Schema({
     }
     ],
 
-    registeredUsers: [
-        {
-            user_id: {
-                type: String,
-                unique: true,
-            },
-        },
-    ],
+    // registeredUsers: [
+    //     {
+    //         user_id: {
+    //             type: String,
+    // unique:true
+    //         },
+    //     },
+    // ],
     teamMaxSize: {
         type: String,
         required: true,
