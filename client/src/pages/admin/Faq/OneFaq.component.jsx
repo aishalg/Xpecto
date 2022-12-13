@@ -10,7 +10,7 @@ export default function OneFaq(props) {
 
         console.log(id,"Delete")
         try {
-          const url=`${process.env.REACT_APP_BACKENDURL}/api/events/${id}`;
+          const url=`${process.env.REACT_APP_BACKENDURL}/api/faqs/${id}`;
           const res=await axios.delete(url);
         } catch (error) {
           console.log("ref eroor")
