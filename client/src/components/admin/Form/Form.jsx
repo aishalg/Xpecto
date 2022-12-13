@@ -8,7 +8,7 @@ function Form(props) {
 
 
     const handleInput = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setFormvalue({ ...formvalue, [name]: value });
         //console.log(formvalue);
     }
