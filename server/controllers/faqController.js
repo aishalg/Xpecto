@@ -57,7 +57,7 @@ exports.addFaqs= async(req, res, next)=> {
 
 
 
-exports.newUpdate= async(req, res, next)=> {
+exports.updateFaqs= async(req, res, next)=> {
     try{
         const newData={
             $set:{

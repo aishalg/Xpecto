@@ -11,6 +11,11 @@ const workshopRouter = require("./routes/workshopRoutes");
 
 // INITIALIZING EXPRESS APP
 const app = express();
+
+var cors = require('cors');
+
+// use it before all route definitions
+app.use(cors({origin: 'http://localhost:3000'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
