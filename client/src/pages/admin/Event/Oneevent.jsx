@@ -3,7 +3,7 @@ import { Grid,Typography,Button } from "@mui/material";
 import Stack from '@mui/material/Stack';
 import style from "./Event.module.css";
 import Popup from 'reactjs-popup';
-import Updateevent from './Updateevent.component';
+import Updateevent from './Updateevent';
 import axios from 'axios';
 export default function Oneevent(props) {
     const handledelete=async(e,id)=>{
@@ -91,8 +91,9 @@ export default function Oneevent(props) {
 </Popup >
 </Grid>
 <Grid item xs={4}sm={4} md={4}display="flex" justifyContent="flex-end" alignItems="center" >
-    <Popup trigger={<Button variant="outlined" style={{marginLeft:"20px"}} position="bottom left">Update Event</Button>}>
-<Updateevent eventdetail={props.eventdetail}/>
+    <Popup trigger={<Button variant="outlined" Close nested style={{marginLeft:"20px"}} position="bottom left">Update Event</Button>}>
+
+<Updateevent eventdetail={props.eventdetail} />
     </Popup>
 
 </Grid>
