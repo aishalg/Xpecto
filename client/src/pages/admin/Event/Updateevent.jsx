@@ -120,6 +120,7 @@ export default function Updateevent(props) {
 <Grid item xs={4}sm={4} md={4}display="flex" justifyContent="center" alignItems="center"><Button variant="outlined" onClick={handleaddclick} >Add Coordinators</Button></Grid>
 <Grid  item display="flex" justifyContent="center" alignItems="center" xs={12} sm={12} md={12}>  <Button variant="outlined" onClick={(e)=>handleSubmit(e,props.eventdetail._id)}styles={{marginTop:"20px",marginBottom:"30px",width:"300px",display:"flex",flexDirection:"column",justifyContent:"center"}} >Update</Button>
 </Grid>
+
   </Grid>
   </div>
 
