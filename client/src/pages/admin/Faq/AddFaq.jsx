@@ -19,7 +19,7 @@ const AddFaq = () => {
         const data=newdata;
 
         try {
-          const url=`${process.env.REACT_APP_BACKENDURL}/faq/events/`;
+          const url=`${process.env.REACT_APP_BACKENDURL}/api/faqs/`;
           const res=await axios.post(url,data);
         } catch (error) {
           console.log("ref eroor")
@@ -27,15 +27,8 @@ const AddFaq = () => {
       }
       
          const handlechange=({currentTarget:input})=>{
-      if(input.name ==="question" ){
-        const ques=newdata.question;
      
-        setnewdata({...newdata,ques:question})
-
-      }else{
         setnewdata({...newdata,[input.name]:input.value});
-
-      }
     }
       
       
