@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Workshop.module.scss";
+import "./Workshop.css";
 import Card from '../../../components/admin/Card/Card.jsx'
 import BasicModal from "../../../components/admin/Modal/Modal";
 
@@ -10,7 +10,7 @@ const Workshop = () => {
     return (
 
 
-        <div className={styles["page"]}>
+        <div className="page">
 
             <h5 style={{ margin: "0", padding: "20px" }}>Workshop</h5>
             <Card />

@@ -6,8 +6,7 @@ router.route("/").get(faqController.getFaqs)
 .post(faqController.addFaqs);
 router.route("/:id").get(faqController.getOneFaq)
 .delete(faqController.deleteFaqs)
-.patch(faqController.updateFaqs);
-
+.patch(faqController.UpdateFaqs);
 
 
 

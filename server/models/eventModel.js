@@ -15,13 +15,14 @@ const eventSchema = mongoose.Schema({
         unique: true,
     },
 
-    oneline_content: {
+    shortsummary: {
         type: String,
         required: true,
     },
 
-    rest_content: {
+    longsummary: {
         type: String,
+        required:true
     },
 
     event_image: {
@@ -44,13 +45,13 @@ const eventSchema = mongoose.Schema({
     },
 
     createdAt: {
-        type: Date,
-        default: Date.now,
-    },
+        type: String,
+     required:true 
+       },
 
     start_time: {
         day: {
-            type: Number,
+            type: String,
             required: true,
         },
         time: {
@@ -61,7 +62,7 @@ const eventSchema = mongoose.Schema({
 
     end_time: {
         day: {
-            type: Number,
+            type: String,
             required: true,
         },
         time: {
@@ -72,7 +73,7 @@ const eventSchema = mongoose.Schema({
 
     prices: {
         first: {
-            type: Number,
+            type: String,
             required: true,
         },
         second: {
@@ -85,8 +86,7 @@ const eventSchema = mongoose.Schema({
         },
     },
 
-    coordinators: {
-        first: {
+    coordinators:[ {
             name: {
                 type: String,
                 required: true,
@@ -95,33 +95,24 @@ const eventSchema = mongoose.Schema({
                 type: String,
                 required: true,
             },
-        },
-        second: {
-            name: {
-                type: String,
-                required: true,
-            },
-            contact: {
-                type: String,
-                required: true,
-            },
-        },
-    },
-
-    registeredUsers: [
-        {
-            user_id: {
-                type: String,
-                unique: true,
-            },
-        },
+        
+    }
     ],
+
+    // registeredUsers: [
+    //     {
+    //         user_id: {
+    //             type: String,
+    // unique:true
+    //         },
+    //     },
+    // ],
     teamMaxSize: {
-        type: Number,
+        type: String,
         required: true,
     },
     teamMinSize: {
-        type: Number,
+        type: String,
         required: true,
     },
 });

@@ -12,7 +12,7 @@ exports.getEvents=async(req,res)=>{
     }
     res.status(200).json(context);
  } catch (error) {
-    res.status(400).json({Error:err});
+    res.status(400).json({Error:error});
  }
 }
 
@@ -25,110 +25,63 @@ exports.getEvent=async(req,res)=>{
     }
     res.status(200).json(context);
     } catch (error) {
-        res.status(400).json({Error:err}); 
+        res.status(400).json({Error:error}); 
     }
 }
 exports.addevent=async(req,res)=>{
     try {
-        const newdata={
-            club:req.body.club,
-            info:req.body.info,
-            name:req.body.info,
-            oneline_content:req.body.info,
-            rest_content:req.body.rest_content,
-            event_image:req.body.event_image,
-            rulebook_link:req.body.rulebook,
-            description:req.body.description,
-            problemset_link:req.body.problemset_link,
-            createdAt:req.body.createdAt,
-            start_time: {
-                day:req.body.start_time_day,
-                time:req.body.start_time_time
-            },
-            end_time: {
-                day:req.body.end_time_day,
-                time: req.body.end_time_time
-            },
-            prices: {
-                first:req.body.firstprice,
-                second:req.body.sencondprice,
-                third:req.body.thirdprice
-            },
-            coordinators: {
-                first: {
-                    name:req.body.firstcoordinators,
-                    contact:req.body.firstcoordinatorscontact
-                },
-                second: {
-                    name:req.body.secondcoordinators,
-                    contact:req.body.secondcoordinatorscontact
-                },
-            },
-            teamMaxSize:req.body.teamMaxsize,
-            teamMinSize:req.body.teamMinsize
-        } 
-        const add=Event.insertOne(newdata);
+        
+        const newdata=req.body;
+        const response=Event.create(newdata)
         res.status(200).json({status:"success"})
     } catch (error) {
-        res.status(400).json({Error:err}); 
+        res.status(400).json({Error:error});
+        console.log("Erorr occure at event added") 
     }
 }
 
-exports.updateEvent=async()=>{
+exports.updateEvent=async(req,res)=>{
     try {
+        console.log(req.body,"bodu")
+        const data=req.body;
+        // console.log(data)
         const newdata={
-            club:req.body.club,
-            info:req.body.info,
-            name:req.body.info,
-            oneline_content:req.body.info,
-            rest_content:req.body.rest_content,
-            event_image:req.body.event_image,
-            rulebook_link:req.body.rulebook,
-            description:req.body.description,
-            problemset_link:req.body.problemset_link,
-            createdAt:req.body.createdAt,
-            start_time: {
-                day:req.body.start_time_day,
-                time:req.body.start_time_time
-            },
-            end_time: {
-                day:req.body.end_time_day,
-                time: req.body.end_time_time
-            },
-            prices: {
-                first:req.body.firstprice,
-                second:req.body.sencondprice,
-                third:req.body.thirdprice
-            },
-            coordinators: {
-                first: {
-                    name:req.body.firstcoordinators,
-                    contact:req.body.firstcoordinatorscontact
-                },
-                second: {
-                    name:req.body.secondcoordinators,
-                    contact:req.body.secondcoordinatorscontact
-                },
-            },
-            teamMaxSize:req.body.teamMaxsize,
-            teamMinSize:req.body.teamMinsize
-        } 
-        const add=Event.updateOne({_id:req.params.id},newdata);
+            $set:{club:data.club,
+                info:data.info,
+                name:data.info,
+                shortsummary:data.shortsummary,
+                longsummary:data.longsummary,
+                event_image:data.event_image,
+                rulebook_link:data.rulebook_link,
+                description:data.description,
+                problemset_link:data.problemset_link,
+                createdAt:data.createdAt,
+                start_time: data.start_time,
+                end_time: data.end_time,
+                prices: data.prices,
+                coordinators:data.coordinators,
+                teamMaxSize:data.teamMaxSize,
+                teamMinSize:data.teamMinSize}
+            } 
+            // console.log(data.coordinators)
+        const eventsid=req.params.id;
+        const add=Event.updateOne({_id:eventsid},newdata);
+        console.log(req.params.id)
         res.status(200).json({status:"success"})
-        
     } catch (error) {
-        res.status(400).json({Error:err});
+        res.status(400).json({Error:error});
 
     }
     
 }
-exports.deleteEvent=async()=>{
+exports.deleteEvent=async(req,res)=>{
     try {
         const eventsid=req.params.id;
+        console.log(eventsid)
         const s= await Event.deleteOne({_id:eventsid});
         res.status(200).json({status:"success"})
     } catch (error) {
-        res.status(400).json({Error:err});
+        res.status(400).json({Error:error});
     }
 }
 

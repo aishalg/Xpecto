@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const eventRouter = require("./routes/eventRoutes");
 const faqRouter = require("./routes/faqRoutes");
@@ -18,6 +19,7 @@ var cors = require('cors');
 app.use(cors({origin: 'http://localhost:3000'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 // Development logging
 if (process.env.NODE_ENV === "development") {
