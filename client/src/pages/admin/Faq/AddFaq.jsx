@@ -5,7 +5,6 @@ import { useState } from "react";
 import axios from 'axios';
 import Stack from '@mui/material/Stack';
 import Popup from 'reactjs-popup';
-
 const AddFaq = () => {
     const data={
         question:"",
@@ -19,26 +18,23 @@ const AddFaq = () => {
         const data=newdata;
 
         try {
-          const url=`${process.env.REACT_APP_BACKENDURL}/faq/events/`;
+       
+          const url=`${process.env.REACT_APP_BACKENDURL}/api/faqs/`;
           const res=await axios.post(url,data);
         } catch (error) {
           console.log("ref eroor")
         }
       }
-      
-         const handlechange=({currentTarget:input})=>{
-      if(input.name ==="question" ){
-        const ques=newdata.question;
-     
-        setnewdata({...newdata,ques:question})
 
-      }else{
+         const handlechange=({currentTarget:input})=>{
+    
+
         setnewdata({...newdata,[input.name]:input.value});
 
-      }
+      
     }
-      
-      
+
+
     
    return <>
     <div className={style.header} style={{marginTop:"20px"}}>
@@ -55,8 +51,6 @@ const AddFaq = () => {
 </Grid>
    
 <Grid item xs={8}sm={12} md={12}display="flex" justifyContent="center" alignItems="center"></Grid>
-
-
 <Grid  item display="flex" justifyContent="flex-end" alignItems="center" xs={12} sm={12} md={12}>  <Button variant="outlined" 
 onClick={handleSubmit}style={{marginTop:"20px",marginBottom:"30px",width:"300px",display:"flex",flexDirection:"column",justifyContent:"flex-end"}} >Submit</Button>
 <Grid  item display="flex" justifyContent="center" alignItems="center" xs={12} sm={12} md={12}>  <Button variant="outlined" 
@@ -64,7 +58,6 @@ onClick={()=>{close()}}style={{marginTop:"20px",marginBottom:"30px",width:"300px
 </Grid>
   </Grid>
   </div>
-
 </Stack>
   )}
   </Popup>
@@ -72,4 +65,3 @@ onClick={()=>{close()}}style={{marginTop:"20px",marginBottom:"30px",width:"300px
         </>
 };
 export default AddFaq;
-
