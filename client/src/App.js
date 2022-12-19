@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/public/Home/Home";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import Eventadmin from "./pages/admin/Event/Event";
+import Event from "./pages/public/Events/Event"
 import Keytalk from "./pages/admin/Keytalk/Keytalk";
 import Sponsor from "./pages/admin/Sponsor/Sponsor";
 import Faq from "./pages/admin/Faq/Faq";
@@ -18,8 +19,8 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
-
-                    <Route path="/admin/dashboard" element={<Dashboard />} />
+                    <Route path="/event" element={<Event />} />
+                  <Route path="/admin/dashboard" element={<Dashboard />} />
                     <Route path="/admin/event" element={<Eventadmin />} />
                     <Route path="/admin/faq" element={<Faq />} />
                     <Route path="/admin/webinar" element={<Webinar />} />
