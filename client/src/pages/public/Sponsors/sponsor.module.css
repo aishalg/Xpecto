@@ -25,18 +25,18 @@
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
-    text-shadow: 1px 1.1px 2.5px #fff;
+    text-shadow: 1px 1.5px 3px #03f7f7;
 
 }
 .heading2{
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    text-shadow: 1px 1.1px 2.5px #fff;
+    text-shadow: 1px 1.8px 3px #03f7f7;
 }
 .sponsordiv{
     background-color: black;
-    border: 2px solid #03f7f7;
+    border: 1px solid #03f7f7;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -60,7 +60,7 @@
 }
 .eventpartners{
     color: #03f7f7;
-    font-size: medium;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 .sponsordiv:hover{

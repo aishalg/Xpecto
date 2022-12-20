@@ -3,6 +3,7 @@ import style from "./sponsor.module.css"
 import { oldsponsors } from './oldsponsorsinfos'
 import Grid from '@mui/system/Unstable_Grid/Grid'
 import { useState } from 'react'
+import About from '../component/About'
 export default function Sponsor() {
     const [oldsponsorsdata,setoldsponsordata]=useState(oldsponsors)
     const [spontype,setspontype]=useState([{"name":"Associate Sponsors"},
@@ -19,6 +20,7 @@ export default function Sponsor() {
   // const hiddenE
   return (
     <>
+    <About/>
     <div className={style["container"]}>
         <p className={style["heading1"]}>Our Past Sponsors</p>
       {spontype.map((spon)=>{
