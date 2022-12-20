@@ -25,7 +25,7 @@ const Card = () => {
         getWS();
     }, []);
     function deleteUser(id) {
-        fetch(`http://localhost:9000/api/workshops/${id}`, {
+        fetch(`${process.env.REACT_APP_BACKENDURL}/api/workshops/${id}`, {
             method: 'DELETE'
         }).then((result) => {
             result.json().then((resp) => {

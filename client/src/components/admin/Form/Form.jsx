@@ -15,7 +15,7 @@ function Form(props) {
     const handleFormsubmit = async (e) => {
         e.preventDefault();
         if (props.btn === "update") {
-            fetch(`http://localhost:9000/api/workshops/${props.data._id}`, {
+            fetch(`${process.env.REACT_APP_BACKENDURL}/api/workshops/${props.data._id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -37,7 +37,7 @@ function Form(props) {
             window.location.reload();
         }
         else {
-            fetch('http://localhost:9000/api/workshops', {
+            fetch(`${process.env.REACT_APP_BACKENDURL}/api/workshops`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
