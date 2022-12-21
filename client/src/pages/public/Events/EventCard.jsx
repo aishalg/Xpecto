@@ -31,7 +31,15 @@ const EventCard = (props) => {
       <Grid item xs={12} sm={6} md={4}>
         <div className={style["event-card"]}>
           <div className={style["event-heading"]}>
-            {props.data.name}
+            <div className={style["event-title"]}>
+            <div>
+              {props.data.name}
+              </div>
+              <div className={style["event-club"]}>
+                {props.data.club}
+              </div>
+
+            </div>
             <div className={style["event-readmore"]}>
               <span className={style["event-tooltip"]}>More Info</span>
               <a href="#pdf" target="_blank">
@@ -45,7 +53,7 @@ const EventCard = (props) => {
           </div>
           <div className={style["event-prize-money"]} ref={ref1}>
             <hr />
-            prizes worth: <span>{props.data.pricesworth}</span>
+            Prizes Worth: <span>{props.data.pricesworth}</span>
             <hr />
           </div>
           <div className={style["event-desc"]}>{props.data.description}</div>
