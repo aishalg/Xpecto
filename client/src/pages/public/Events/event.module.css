@@ -10,13 +10,12 @@
   text-shadow: 1px 1.8px 3px #03f7f7;
   color: #03f7f7;
 }
-.event-card hr{
+.event-card hr {
   transform: scaleX(100%);
   transform-origin: left;
-  transition: transform 0.5s ease;
+  transition: transform 1s ease;
 }
-.event-card-invisible hr{
-  /* display: none; */
+.event-card-invisible hr {
   transform: scaleX(0%);
 }
 .event-container {
@@ -30,7 +29,6 @@
   width: 100%;
   padding: 20px 0;
   margin-top: 35px;
-  background-color: ;
 }
 .event-readmore {
   width: 20px;

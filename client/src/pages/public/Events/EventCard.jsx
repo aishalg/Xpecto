@@ -16,13 +16,15 @@ const EventCard = (props) => {
       },
       { threshold: 0.5 }
     );
-    observer.observe(ref1.current);
-    observer.observe(ref2.current);
+    const ref1Current = ref1.current;
+    const ref2Current = ref2.current;
+    observer.observe(ref1Current);
+    observer.observe(ref2Current);
     return () => {
-      observer.unobserve(ref1.current);
-      observer.unobserve(ref2.current);
+      observer.unobserve(ref1Current);
+      observer.unobserve(ref2Current);
     };
-  })
+  }, [ref1, ref2]);
 
   return (
     <>

@@ -2,10 +2,10 @@ import React from "react";
 import style from "./event.module.css";
 import { Grid } from "@mui/material";
 import { oldeventdetails } from "./oldevents";
-import { useState } from "react";
+// import { useState } from "react";
 import EventCard from "./EventCard";
 const Event = () => {
-  const [eventdetails, seteventdetails] = useState(oldeventdetails);
+  // const [eventdetails, seteventdetails] = useState(oldeventdetails);
   return (
     <div className={style["event-main"]}>
       <p className={style.heading}>Events</p>
