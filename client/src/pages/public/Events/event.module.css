@@ -1,26 +1,35 @@
 .event-main {
   background-color: black;
   color: black;
+  margin:0px;
+  padding: 30px;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 .heading {
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
-  font-size: 2rem;
   font-weight: 700;
+  margin-top: -1px;
+  margin-bottom: -1px;
   text-shadow: 1px 1.8px 3px #03f7f7;
   color: #03f7f7;
+}
+.event-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .event-card hr {
   transform: scaleX(100%);
   transform-origin: left;
+  
   transition: transform 1s ease;
 }
 .event-card-invisible hr {
   transform: scaleX(0%);
 }
 .event-container {
-  /* height:100vh;
-  width: 100wh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,10 +44,6 @@
   height: 20px;
   background-color: #191516;
   transition: all 0.25s ease-in-out;
-}
-.event-readmore:hover {
-  transform: scale(1.2);
-  cursor: pointer;
 }
 .event-tooltip {
   display: none;
@@ -66,7 +71,7 @@
   border-color: #2b29f9 transparent transparent transparent;
 }
 .event-club{
-  font-size: small;
+  font-size: medium;
   color: #03f7f7;
 text-align: start;}
 .event-prize-money {
@@ -86,6 +91,9 @@ text-align: start;}
 }
 .event-desc::-webkit-scrollbar {
   width: 5px;
+}
+::-webkit-scrollbar {
+  height: 0px;
 }
 .event-desc::-webkit-scrollbar-track {
   background: #f1f1f1;

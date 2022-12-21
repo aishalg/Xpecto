@@ -98,7 +98,7 @@ export const oldeventdetails =[{
   "pricesworth": "10K"
 },{
   "club": "KBG",
-  "name": "\\Epidemic",
+  "name": "Epidemic",
   "description": "A modeling and simulation competition in which teams must address data acquisition, preprocessing, subsequent modeling, and inferential analysis of situations during a simulated epidemic with the goal of predicting the type and timing of preventive operations ahead of time.",
   "teamMaxSize": 4,
   "teamMinSize": 1,
