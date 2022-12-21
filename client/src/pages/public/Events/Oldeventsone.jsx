@@ -9,6 +9,7 @@ const Oldeventone = (props) => {
             <div className={style["event-heading"]}>
               {props.data.name}
             </div>
+            <div className={style["club-name"]}>{props.data.club}</div>
             <div className={style["event-desc"]}>
              {props.data.description}
             </div>
