@@ -14,13 +14,15 @@ exports.createWorkshop = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: newWorkshop, 
+    data: newWorkshop,
+
   });
+
 });
 
 exports.getWorkshop = asyncHandler(async (req, res, next) => {
   const workshop = await Workshop.findById(req.params.id);
-  console.log(req.params);
+
   res.status(200).json({
     status: "success",
     data: workshop,
