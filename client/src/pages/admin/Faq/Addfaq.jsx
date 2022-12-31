@@ -39,7 +39,7 @@ const AddFaq = () => {
    return <>
     <div className={style.header} style={{marginTop:"20px"}}>
     
-    <Popup trigger={<Button variant="outlined" style={{marginLeft:"20px"}} modal nested >Add Events</Button>
+    <Popup trigger={<Button variant="outlined" style={{marginLeft:"20px"}} modal nested >Add faqs</Button>
 } position="bottom center">
   {close=> (
     <Stack component="form"  style={{marginLeft:"15px"}} onSubmit={handleSubmit} className={style.form} marginTop={5}>     
