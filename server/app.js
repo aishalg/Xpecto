@@ -12,6 +12,7 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const passportSetup=require("./config/passport");
 const authRoute=require("./routes/authRouters");
+const paymentRouter=require("./routes/paymentRouters")
 // INITIALIZING EXPRESS APP
 const app = express();
 
@@ -55,9 +56,7 @@ app.use(
 
 
 app.use("/auth",authRoute);
-
-
-
+app.use("/api/payment/",paymentRouter);
 app.use("/api/events", eventRouter);
 app.use("/api/faqs", faqRouter);
 app.use("/api/keytalks", keytalkRouter);

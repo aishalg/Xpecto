@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useState,useEffect } from "react";
 import axios from "axios";
+import Razorpay from "../component/payment/Razorpay";
 const Home = () => {
     const [user, setUser] = useState(null);
 
@@ -40,6 +41,9 @@ const Home = () => {
         <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Sign in google</Button>
         <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Login with google</Button>
         <Button variant="outlined" onClick={logout} sx={{ m: 5 }}>Logout</Button>
+		<div>
+			<Razorpay/>
+		</div>
         </>
     );
 };
