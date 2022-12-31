@@ -11,7 +11,7 @@ const workshopRouter = require("./routes/workshopRoutes");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const passportSetup=require("./config/passport");
-const authRoute=require("./routes/auth");
+const authRoute=require("./routes/authRouters");
 // INITIALIZING EXPRESS APP
 const app = express();
 
