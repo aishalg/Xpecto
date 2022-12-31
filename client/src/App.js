@@ -11,7 +11,11 @@ import Faq from "./pages/admin/Faq/Faq";
 import TeamMember from "./pages/admin/TeamMember/TeamMember";
 import Webinar from "./pages/admin/Webinar/Webinar";
 import Workshop from "./pages/admin/Workshop/Workshop";
+
+import Contacts from "./pages/admin/Contacts/Contacts";
+
 import  OldSponsor from "./pages/public/Sponsors/Sponsor";
+
 // import Navbar from "./components/admin/Navbar/Navbar";
 function App() {
     return (
@@ -30,6 +34,7 @@ function App() {
                     <Route path="/admin/sponsor" element={<Sponsor />} />
                     <Route path="/admin/teamMember" element={<TeamMember />} />
                     <Route path="/admin/keytalk" element={<Keytalk />} />
+                    <Route path="/admin/contacts" element={<Contacts/>} />
                 </Routes>
             </BrowserRouter>
             {/* <Layout> */}
