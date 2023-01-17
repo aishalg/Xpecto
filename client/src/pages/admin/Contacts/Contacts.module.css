@@ -1,7 +1,8 @@
-    body{
+   /* body{
   background-color: rgb(241, 205, 205);
   
-}
+} */
+/*
 .wrapper {
   position: relative;
   perspective: 40em;
@@ -63,7 +64,6 @@ a:hover{
     transform: translateX(10px) rotateY(25deg) rotateX(10deg);
     background: rgba(18, 217, 231, 0.88);
     display: inline;
-    /* justify-content: flex-start; */
     align-items: center;
     padding: 10px;
     color: #000;
@@ -132,4 +132,4 @@ h1 {
   will-change: transform;
   transition: .3s transform cubic-bezier(.25,.46,.45,1);
 }
-
+ */
