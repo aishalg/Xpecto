@@ -1,6 +1,3 @@
-
-
-
 const Event = require("./../models/eventModel");
 
 exports.getEvents=async(req,res)=>{

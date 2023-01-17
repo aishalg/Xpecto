@@ -11,7 +11,7 @@ import Faq from "./pages/admin/Faq/Faq";
 import TeamMember from "./pages/admin/TeamMember/TeamMember";
 import Webinar from "./pages/admin/Webinar/Webinar";
 import Workshop from "./pages/admin/Workshop/Workshop";
-
+import Signup from "./pages/public/component/User/Signup";
 import Contacts from "./pages/admin/Contacts/Contacts";
 
 import  OldSponsor from "./pages/public/Sponsors/Sponsor";
@@ -26,6 +26,8 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/event" element={<Event />} />
                     <Route path="/sponsor" element={<OldSponsor />} />
+                    <Route path="/signup" element={<Signup />} />
+
                   <Route path="/admin/dashboard" element={<Dashboard />} />
                     <Route path="/admin/event" element={<Eventadmin />} />
                     <Route path="/admin/faq" element={<Faq />} />
