@@ -8,8 +8,8 @@ import Razorpay from "../component/payment/Razorpay";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 const Home = () => {
-	const user=useSelector((state)=>state.userdata)
-	console.log(user)
+	const user=useSelector((state)=>state.userinfo);
+	const [newuser,setnewuser]=useState(user)
     const navigate=useNavigate();
 	const getUser = async () => {
 		try {
@@ -17,30 +17,41 @@ const Home = () => {
 			const { data } = await axios.get(url, { withCredentials: true });
 			// console.log("data",data)
 			console.log("data after signin ",data)
-
-            if(data.isnewuser){
+            setnewuser(newuser=>({
+				...newuser,
+				email:data.data.email,
+				displayname:data.data.displayName,
+				image:data.data.image,
+				firstname:data.data.firstName
+			}));
+            // setnewuser({...newuser,displayname:data.data.displayName});
+            // setnewuser({...newuser,image:data.data.image});
+            // setnewuser({...newuser,firstname:data.data.firstName});
+			console.log("newdata",newuser);
+            // if(data.isnewuser){
 				
-                navigate("/signup");
-			}
+            //     navigate("/signup");
+			// }
         //    userdata.em
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	useEffect(() => {
-		getUser();
-	}, []);
+	// useEffect(() => {
+	// 	getUser();
+	// }, []);
 
     // const usera = userDetails.user;
 	const logout = () => {
 		window.open(`${process.env.REACT_APP_BACKENDURL}/auth/logout`, "_self");
 	};
-    const googleAuth = () => {
+    const googleAuth = async() => {
 		window.open(
 			`${process.env.REACT_APP_BACKENDURL}/auth/google/callback`,
 			"_self"
 		);
+		getUser();
 	};
 	// console.log("usedetail " ,user)
     return (
