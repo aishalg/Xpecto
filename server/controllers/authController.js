@@ -7,8 +7,8 @@ exports.loginsuccess=async(req,res)=>{
         const userinfo = await User.findOne({"email":req.user.emails[0].value});
         console.log("userinfo",userinfo)
         var newuser=false;
+        const userdetail=req.user;
         if(userinfo==null){
-            const userdetail=req.user;
             // console.log(userdetail,"user")
             User.create({
                googleId:userdetail.id,
@@ -20,11 +20,17 @@ exports.loginsuccess=async(req,res)=>{
             newuser=true;
             // console.log("User data save succesfully")
         }
+        const context={
+            email:userdetail.emails[0].value,
+               displayName:userdetail.displayName,
+               firstName:userdetail.name.givenName,
+               image:userdetail.photos[0].value,
+        }
         res.status(200).json({
             error:false,
             isnewuser:newuser,
             message:"Successfully Loged In",
-            user:req.user,
+            data:context,
         })
         // console.log(req.user.id,"user")
     }else{
