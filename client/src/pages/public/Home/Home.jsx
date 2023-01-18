@@ -7,6 +7,7 @@ import axios from "axios";
 import Razorpay from "../component/payment/Razorpay";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import Sidebar from '../../../components/Sidebar/Sidebar';
 const Home = () => {
 	const user=useSelector((state)=>state.userinfo);
 	const [newuser,setnewuser]=useState(user)
@@ -55,17 +56,33 @@ const Home = () => {
 	};
 	// console.log("usedetail " ,user)
     return (
-        <>
-        <div className={styles["page"]}>
-            <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
-        </div>
-        <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Sign in google</Button>
-        <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Login with google</Button>
-        <Button variant="outlined" onClick={logout} sx={{ m: 5 }}>Logout</Button>
-		<div>
-			<Razorpay/>
+
+		<div className={styles['page']} style={{backgroundImage: `url(${process.env.PUBLIC_URL}home/background.jpg)`}}>
+			<Sidebar />
+		
+			<div className={styles['section1']}>
+				<img className={styles['section1-plus']} src={`${process.env.PUBLIC_URL}home/plusplus.svg`} alt='plusplusgraphic' />
+				<img className={styles['mainlogo']} src={`${process.env.PUBLIC_URL}home/mainlogo.svg`} alt='XpectoLogo' />
+				<img className={styles['section1-rightrectangle']} src={`${process.env.PUBLIC_URL}home/rightrectangle.svg`} alt='rightrectangle' />
+				<img className={styles['section1-scrolldown']} src={`${process.env.PUBLIC_URL}home/scrolldown.svg`} alt='scrolldown' />
+				<img className={styles['section1-bottomleftgraphic']} src={`${process.env.PUBLIC_URL}home/lineslines.svg`} alt='bottomleftgraphic' />
+				<img className={styles['section1-register']} src={`${process.env.PUBLIC_URL}home/register.svg`} alt='register' />
+			</div>
+			<div style={{height: '300vh'}}>
+		
+			</div>
 		</div>
-        </>
+        // <>
+        // <div className={styles["page"]}>
+        //     <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
+        // </div>
+        // <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Sign in google</Button>
+        // <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Login with google</Button>
+        // <Button variant="outlined" onClick={logout} sx={{ m: 5 }}>Logout</Button>
+		// <div>
+		// 	<Razorpay/>
+		// </div>
+        // </>
     );
 };
 
