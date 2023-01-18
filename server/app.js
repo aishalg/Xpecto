@@ -13,6 +13,7 @@ const passport = require("passport");
 const passportSetup=require("./config/passport");
 const authRoute=require("./routes/authRouters");
 const paymentRouter=require("./routes/paymentRouters")
+const userRouter =require("./routes/userRoute")
 // INITIALIZING EXPRESS APP
 const app = express();
 
@@ -64,7 +65,7 @@ app.use("/api/sponsors", sponsorRouter);
 app.use("/api/teamMembers", teamMemberRouter);
 app.use("/api/webinars", webinarRouter);
 app.use("/api/workshops", workshopRouter);
-
+app.use("/api/signup",userRouter);
 // IF A ROUTE NOT AVAILABLE
 app.all("*", async (req, res) => {
     res.status(404).json({

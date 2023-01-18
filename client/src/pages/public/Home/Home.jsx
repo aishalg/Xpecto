@@ -7,23 +7,27 @@ import axios from "axios";
 import Razorpay from "../component/payment/Razorpay";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../component/Sidebar/Sidebar";
+import { useSelector } from 'react-redux';
 const Home = () => {
-  const [user, setUser] = useState(null);
+	const user=useSelector((state)=>state.userdata)
+	console.log(user)
     const navigate=useNavigate();
-  const getUser = async () => {
-    try {
-      const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
-      const { data } = await axios.get(url, { withCredentials: true });
-      // console.log("data",data)
-            if(data.isnewuser){
-        navigate("/signup");
-      }
+	const getUser = async () => {
+		try {
+			const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
+			const { data } = await axios.get(url, { withCredentials: true });
+			// console.log("data",data)
+			console.log("data after signin ",data)
 
-			setUser(data.message,data.error);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if(data.isnewuser){
+				
+                navigate("/signup");
+			}
+        //    userdata.em
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
   useEffect(() => {
     getUser();
@@ -39,7 +43,7 @@ const Home = () => {
       "_self"
     );
   };
-	console.log("usedetail " ,user)
+	// console.log("usedetail " ,user)
   return (
     <>
       <div
