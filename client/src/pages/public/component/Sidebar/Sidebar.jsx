@@ -23,6 +23,7 @@ function Sidebar() {
             x2="90"
             y2="24"
             stroke="black"
+            strokeLinecap="round"
             strokeWidth={10}
           />
           <line
@@ -31,6 +32,7 @@ function Sidebar() {
             x2="90"
             y2="50"
             stroke="black"
+            strokeLinecap="round"
             strokeWidth={10}
           />
           <line
@@ -39,6 +41,7 @@ function Sidebar() {
             x2="90"
             y2="76"
             stroke="black"
+            strokeLinecap="round"
             strokeWidth={10}
           />
         </svg>
