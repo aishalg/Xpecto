@@ -1,4 +1,4 @@
-const oldvalue={
+var oldvalue={
 email:"",
 displayname:"",
 firstname:"",
@@ -12,13 +12,24 @@ referralcode:"",
 }
 
 const userinfo=(state =oldvalue,action)=>{
-    const newstate=state;
-    switch(action.type){
-        case "userinfo":
-            newstate=action.payload;
-        default:
-            return state;
-    }
-    return newstate;
+    if (action.type === "userinfo") {
+        // return the new state
+        console.log("form reducers ",action.payload);
+        return action.payload
+      }
+      // always return state
+      return state
 }
+// const userinfo=(state =oldvalue,action)=>{
+//     var newstate=state;
+//     switch(action.type){
+//         case "userinfo":
+//             console.log("nnjr 0",action.payload);
+//             newstate=action.payload;
+//             return state=newstate;
+//          break;
+//         default:
+//                 return state;
+//             }
+// }
 export default userinfo;
