@@ -14,5 +14,5 @@ router.get(
        failureRedirect:"/login",
     })
 )
-router.route("/signup").get(usercontroller.finduserDetail).post(usercontroller.saveuserDetail)
+router.route("/signup").post(usercontroller.saveuserDetail)
 module.exports =router;

@@ -25,19 +25,22 @@ exports.finduserDetail= async(req,res)=>{
 
 exports.saveuserDetail=async(req,res)=>{
   try{
-    const useremail =req.user.emails[0].value;
-    const data=req.body;
+    const useremail =req.body.user;
+    const data=req.body.data;
     var myquery ={"email":useremail}
-    var newvalues = { $set: {firstname:data.firstname, phoneNumber:data.phonenumber,fullName:(data.firstname + " " + data.lastname),
+    var newvalues = { $set: { phoneNumber:data.phonenumber,
     collegeName:data.collegename,degree:data.degree,branch:data.branch,referralCode:data.referralcode } };
-    console.log("datasaved successfully",newvalues);
-    User.updateOne(myquery,newvalues);
+    // var newvalues ={$set:{ "firstname":req.body.firstname,phoneNumber:req.body.phonenumber}}
+    const s= await User.updateOne(myquery,newvalues);
+    // console.log("datasaved successfully",newvalues);
+    // console.log(s);
     res.status(200).json({
         status:"success",
         message:"Data saved Successfuly"
     })
   }
-  catch{
+  catch(err){
+    console.log(err);
     res.status(400).json({
       status:"failed",
       message:"Error Occure please try Again"

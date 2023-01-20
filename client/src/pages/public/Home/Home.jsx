@@ -8,15 +8,20 @@ import Razorpay from "../component/payment/Razorpay";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Sidebar from '../../../components/Sidebar/Sidebar';
-const Home = () => {
+import { useDispatch } from "react-redux";
+import *  as action from "../../../actions/index"
+
+export default function  Home(){
 	const user=useSelector((state)=>state.userinfo);
+	const dispatch =useDispatch();
 	const [newuser,setnewuser]=useState(user)
     const navigate=useNavigate();
-	const getUser = async () => {
+	const [isuser ,setisuser]=useState(false);
+	const [bool,setbool]=useState(false);
+	const getUser = async (props) => {
 		try {
 			const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
 			const { data } = await axios.get(url, { withCredentials: true });
-			// console.log("data",data)
 			console.log("data after signin ",data)
             setnewuser(newuser=>({
 				...newuser,
@@ -25,23 +30,31 @@ const Home = () => {
 				image:data.data.image,
 				firstname:data.data.firstName
 			}));
-            // setnewuser({...newuser,displayname:data.data.displayName});
-            // setnewuser({...newuser,image:data.data.image});
-            // setnewuser({...newuser,firstname:data.data.firstName});
-			console.log("newdata",newuser);
-            // if(data.isnewuser){
-				
-            //     navigate("/signup");
-			// }
-        //    userdata.em
+			console.log("newuser ",newuser);
+			const d = (newuser)=>{ dispatch(action.changeuserinfo(newuser));}
+			d(newuser);
+			console.log("Now user info from redux ",user);
+		     setisuser(true);
+			if(data.isnewuser){
+              setbool(true);
+			}
 		} catch (err) {
 			console.log(err);
 		}
 	};
+//  if(data.isnewuser){
+			// 	navigate("/signup");
+			//  }
+	useEffect(() => {
+		getUser();
+		const nav=()=>{
+			if(bool){
 
-	// useEffect(() => {
-	// 	getUser();
-	// }, []);
+				navigate("/signup");
+			}
+		}
+		nav();
+	}, [isuser,user]);
 
     // const usera = userDetails.user;
 	const logout = () => {
@@ -52,11 +65,10 @@ const Home = () => {
 			`${process.env.REACT_APP_BACKENDURL}/auth/google/callback`,
 			"_self"
 		);
-		getUser();
 	};
 	// console.log("usedetail " ,user)
     return (
-
+        <>
 		<div className={styles['page']} style={{backgroundImage: `url(${process.env.PUBLIC_URL}home/background.jpg)`}}>
 			<Sidebar />
 		
@@ -71,19 +83,20 @@ const Home = () => {
 			<div style={{height: '300vh'}}>
 		
 			</div>
+			</div>
+        <div className={styles["page"]}>
+            <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
+        </div>
+        <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Sign in google</Button>
+        <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Login with google</Button>
+        <Button variant="outlined" onClick={logout} sx={{ m: 5 }}>Logout</Button>
+		<h1>Name : {user.firstname}</h1>
+		<h1>Name : {user.email}</h1>
+		{/* <button onClick={(nav())}> got got </button> */}
+		<div>
+			<Razorpay/>
 		</div>
-        // <>
-        // <div className={styles["page"]}>
-        //     <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
-        // </div>
-        // <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Sign in google</Button>
-        // <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>Login with google</Button>
-        // <Button variant="outlined" onClick={logout} sx={{ m: 5 }}>Logout</Button>
-		// <div>
-		// 	<Razorpay/>
-		// </div>
-        // </>
+		</>  
     );
 };
 
-export default Home;

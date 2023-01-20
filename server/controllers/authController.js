@@ -15,7 +15,8 @@ exports.loginsuccess=async(req,res)=>{
                email:userdetail.emails[0].value,
                displayName:userdetail.displayName,
                firstName:userdetail.name.givenName,
-               image:userdetail.photos[0].value, 
+               image:userdetail.photos[0].value,
+               
             })
             newuser=true;
             // console.log("User data save succesfully")
