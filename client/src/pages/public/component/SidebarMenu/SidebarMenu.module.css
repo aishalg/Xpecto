@@ -68,9 +68,8 @@
   --sidebar-button-translate: calc((1 + 100 / var(--sidebar-button-width)));
   font-weight: bolder;
   font-size: x-large;
-
   border: none;
-  height: 3rem;
+  height: 4rem;
   margin: auto 0;
   width: calc(var(--sidebar-button-width) * 1%);
   cursor: pointer;
