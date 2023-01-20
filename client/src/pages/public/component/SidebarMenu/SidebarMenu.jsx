@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styles from "./Sidebar.module.css";
+import { Link } from "react-router-dom";
+import styles from "./SidebarMenu.module.css";
 
-function Sidebar() {
+function SidebarMenu() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -61,43 +62,43 @@ function Sidebar() {
             style={{ "--animation-order": 1 }}
             className={styles.sidebarBtn}
           >
-            HOME
+            <Link to="/">HOME</Link>
           </button>
           <button
             style={{ "--animation-order": 2 }}
             className={styles.sidebarBtn}
           >
-            ABOUT US
+            <Link to="/about">ABOUT US</Link>
           </button>
           <button
             style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
           >
-            TIMELINE
+            <Link to="/timeline">TIMELINE</Link>
           </button>
           <button
             style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
           >
-            SPONSORS
+            <Link to="/sponsors">SPONSORS</Link>
           </button>
           <button
             style={{ "--animation-order": 5 }}
             className={styles.sidebarBtn}
           >
-            EVENTS
+            <Link to="/events">EVENTS</Link>
           </button>
           <button
             style={{ "--animation-order": 6 }}
             className={styles.sidebarBtn}
           >
-            WORKSHOPS
+            <Link to="/workshops">WORKSHOPS</Link>
           </button>
           <button
             style={{ "--animation-order": 7 }}
             className={styles.sidebarBtn}
           >
-            FAQ
+            <Link to="/faq">FAQ</Link>
           </button>
         </div>
       </div>
@@ -105,4 +106,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default SidebarMenu;

@@ -1,0 +1,53 @@
+.hamburger-menu {
+    position: absolute;
+    top: 3%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.navbar-container {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 1;
+}
+
+.navbar {
+    height: 100%;
+}
+
+.navbar-blackboxes {
+    position: absolute;
+    height: 23%;
+    left: 50%;
+    transform: translateX(-57%);
+    bottom: 2vh;
+    z-index: 10;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navbar-blackbox {
+    background: black;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.scrollbar-container {
+    box-sizing: content-box;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-55%);
+    width: 9px;
+    border-right: 4px black solid;
+    height: 55%;
+    z-index: 1;
+}
+
+.scrollbar {
+    background: black;
+    width: 20px;
+}

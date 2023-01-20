@@ -1,5 +1,5 @@
 .sidebarBackdrop {
-  --sidebar-left-offset: 70px;
+  --sidebar-left-offset: 10vh;
   position: fixed;
   top: 0;
   left: var(--sidebar-left-offset);
@@ -7,7 +7,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   transform: translateY(-100%);
-  z-index: 2;
+  z-index: -1;
   overflow: clip;
 }
 .sidebarBackdropOpen {
@@ -80,6 +80,10 @@
   /* corner slant cut */
   background: linear-gradient(-45deg, transparent 15px, #ccf1e0 15px);
 }
+.sidebarBtn a{
+  text-decoration: none;
+  color: black;
+}
 .sidebarOpen > .sidebarBtn {
   animation: slideIn 0.2s calc((var(--animation-order) - 1) * 0.1s) ease-in-out
     forwards;
@@ -93,5 +97,11 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .sidebarBtn{
+    font-size: large;
   }
 }
