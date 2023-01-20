@@ -1,16 +1,15 @@
 .hamburger-menu {
     position: absolute;
-    left: 50%;
     top: 3%;
-    transform: translateX(-50%);
-    width: 50%;
-    z-index: 1;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .navbar-container {
-    height: 100vh;
+    height: 100%;
     position: fixed;
     left: 0;
+    z-index: 1;
 }
 
 .navbar {

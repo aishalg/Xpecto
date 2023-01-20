@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SidebarMenu from '../../pages/public/component/SidebarMenu/SidebarMenu';
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
@@ -15,7 +16,9 @@ const Sidebar = () => {
     return (
         <div className={styles['navbar-container']}>
             <img className={styles['navbar']} src={`${process.env.PUBLIC_URL}home/navbar.svg`} alt='navbar' />
-            <img className={styles['hamburger-menu']} src={`${process.env.PUBLIC_URL}home/menulines.svg`} alt='menu' />
+            <div className={styles['hamburger-menu']}>
+                <SidebarMenu />
+            </div>
             <div className={styles['navbar-blackboxes']}>
                 <div className={styles['navbar-blackbox']} />
                 <div className={styles['navbar-blackbox']} />
