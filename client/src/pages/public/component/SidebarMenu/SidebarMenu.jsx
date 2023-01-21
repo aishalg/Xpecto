@@ -15,7 +15,7 @@ function SidebarMenu() {
       document.body.style.setProperty("--current-page-color", "#ccf1e0");
       document.body.style.overflow = "hidden";
     } else {
-      // if (prevColor) document.body.style.setProperty("--current-page-color", prevColor);
+      if (prevColor) document.body.style.setProperty("--current-page-color", prevColor);
       document.body.style.overflow = "unset";
     }
   }, [sidebarOpen]);
