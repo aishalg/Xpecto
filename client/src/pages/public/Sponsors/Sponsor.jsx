@@ -3,7 +3,7 @@ import style from "./sponsor.module.css"
 import { oldsponsors } from './oldsponsorsinfos'
 import Grid from '@mui/system/Unstable_Grid/Grid'
 import { useState } from 'react'
-import About from '../component/About'
+import About from '../component/About/About'
 export default function Sponsor() {
     const [oldsponsorsdata,setoldsponsordata]=useState(oldsponsors)
     const [spontype,setspontype]=useState([{"name":"Associate Sponsors"},

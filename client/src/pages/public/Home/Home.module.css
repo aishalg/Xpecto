@@ -1,6 +1,7 @@
 .page {
     min-height: 100vh;
         background-size: contain;
+        padding-left: 10vh;
     }
     
     body {
@@ -9,6 +10,7 @@
     
     .section1 {
         min-height: 100vh !important;
+        padding-bottom: 10px;
         display: flex;
     }
     
@@ -60,3 +62,26 @@
         width: max(13vw, 100px);
     }
 
+.fixed-logo{
+    display:none;
+    position:fixed;
+    top: 5%;
+    right: 0%;
+    width: 20%;
+
+}
+.fixed-logo-visible{
+    display: unset;
+}
+.back-to-top{
+    display:none;
+    position:fixed;
+    bottom:3%;
+    right: 3%;
+    width: 3%;
+    z-index: 10;
+    cursor: pointer;
+}
+.back-to-top-visible{
+    display: unset;
+}

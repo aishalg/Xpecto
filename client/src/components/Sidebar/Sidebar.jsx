@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import SidebarMenu from '../../pages/public/component/SidebarMenu/SidebarMenu';
+import {ReactComponent as NavbarSvg} from "../../svg/navbar.svg"
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
@@ -15,7 +16,7 @@ const Sidebar = () => {
 
     return (
         <div className={styles['navbar-container']}>
-            <img className={styles['navbar']} src={`${process.env.PUBLIC_URL}home/navbar.svg`} alt='navbar' />
+            <NavbarSvg className={styles['navbar']}/>
             <div className={styles['hamburger-menu']}>
                 <SidebarMenu />
             </div>
