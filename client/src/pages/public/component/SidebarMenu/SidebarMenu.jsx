@@ -86,12 +86,12 @@ function SidebarMenu() {
               ABOUT US
             </Link>
           </button>
-          {/* <button
+          <button
             style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
           >
-            <Link to="/timeline">TIMELINE</Link>
-          </button> */}
+            <Link to="/events">EVENTS</Link>
+          </button>
           {/* <button
             style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
@@ -102,7 +102,7 @@ function SidebarMenu() {
             style={{ "--animation-order": 5 }}
             className={styles.sidebarBtn}
           >
-            <Link to="/events">EVENTS</Link>
+            <Link to="/timeline">TIMELINE</Link>
           </button> */}
           {/* <button
             style={{ "--animation-order": 6 }}
