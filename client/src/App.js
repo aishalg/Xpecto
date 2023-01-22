@@ -15,18 +15,21 @@ import Signup from "./pages/public/component/User/Signup";
 import Contacts from "./pages/admin/Contacts/Contacts";
 
 import OldSponsor from "./pages/public/Sponsors/Sponsor";
+import Profile from "./pages/public/component/profile/Profile";
 
 // import Navbar from "./components/admin/Navbar/Navbar";
 function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
+      
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<EventsHomePage />} />
           <Route path="/sponsor" element={<OldSponsor />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
 
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/event" element={<Eventadmin />} />

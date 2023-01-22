@@ -90,6 +90,14 @@ function SidebarMenu() {
             style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
           >
+            <Link smooth to="/profile" onClick={() => setSidebarOpen(false)}>
+              PROFILE
+            </Link>
+          </button>
+          <button
+            style={{ "--animation-order": 4 }}
+            className={styles.sidebarBtn}
+          >
             <Link to="/events">EVENTS</Link>
           </button>
           {/* <button
