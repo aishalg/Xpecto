@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { HashLink as Link } from "react-router-hash-link";
 import styles from "./SidebarMenu.module.css";
 
 function SidebarMenu() {
@@ -15,7 +14,8 @@ function SidebarMenu() {
       document.body.style.setProperty("--current-page-color", "#ccf1e0");
       document.body.style.overflow = "hidden";
     } else {
-      if (prevColor) document.body.style.setProperty("--current-page-color", prevColor);
+      if (prevColor)
+        document.body.style.setProperty("--current-page-color", prevColor);
       document.body.style.overflow = "unset";
     }
   }, [sidebarOpen]);
@@ -74,48 +74,48 @@ function SidebarMenu() {
             style={{ "--animation-order": 1 }}
             className={styles.sidebarBtn}
           >
-            <HashLink smooth to="/#" onClick={() => setSidebarOpen(false)}>
+            <Link smooth to="/#" onClick={() => setSidebarOpen(false)}>
               HOME
-            </HashLink>
+            </Link>
           </button>
           <button
             style={{ "--animation-order": 2 }}
             className={styles.sidebarBtn}
           >
-            <HashLink smooth to="/#about" onClick={() => setSidebarOpen(false)}>
+            <Link smooth to="/#about" onClick={() => setSidebarOpen(false)}>
               ABOUT US
-            </HashLink>
+            </Link>
           </button>
-          <button
+          {/* <button
             style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
           >
             <Link to="/timeline">TIMELINE</Link>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
           >
             <Link to="/sponsors">SPONSORS</Link>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             style={{ "--animation-order": 5 }}
             className={styles.sidebarBtn}
           >
             <Link to="/events">EVENTS</Link>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             style={{ "--animation-order": 6 }}
             className={styles.sidebarBtn}
           >
             <Link to="/workshops">WORKSHOPS</Link>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             style={{ "--animation-order": 7 }}
             className={styles.sidebarBtn}
           >
             <Link to="/faq">FAQ</Link>
-          </button>
+          </button> */}
         </div>
       </div>
     </>

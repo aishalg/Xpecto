@@ -1,5 +1,5 @@
 .sidebarBackdrop {
-  --sidebar-left-offset: 10vh;
+  --sidebar-left-offset: 50px;
   position: fixed;
   top: 0;
   left: var(--sidebar-left-offset);
@@ -79,7 +79,7 @@
   /* corner slant cut */
   background: linear-gradient(-45deg, transparent 15px, #ccf1e0 15px);
 }
-.sidebarBtn a{
+.sidebarBtn a {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -105,8 +105,16 @@
   }
 }
 
-@media screen and (max-width: 350px) {
-  .sidebarBtn{
-    font-size: large;
+@media screen and (max-width: 450px) {
+  .sidebarBtn {
+    --sidebar-button-width: 40;
+    font-size: small;
+  }
+  .sidebarBackdrop {
+    --sidebar-left-offset: 0px;
+  }
+  .sidebarContainer {
+    /* left:10px; */
+    --sidebar-padding: 0rem;
   }
 }
