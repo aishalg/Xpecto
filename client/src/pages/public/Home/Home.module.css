@@ -71,6 +71,7 @@ body {
 .fixed-logo-visible {
   display: unset;
 }
+
 .back-to-top {
   display: none;
   position: fixed;
