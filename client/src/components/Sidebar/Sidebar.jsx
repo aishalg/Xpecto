@@ -51,7 +51,7 @@ const Sidebar = () => {
         >
           <img
             ref={scrollBtnRef}
-            src={`${process.env.PUBLIC_URL}home/scrollbtn.svg`}
+            src={`${process.env.PUBLIC_URL}/home/scrollbtn.svg`}
             className={styles["scrollbar"]}
             id="scrollbar"
           />
