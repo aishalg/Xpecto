@@ -65,7 +65,7 @@ app.use("/api/sponsors", sponsorRouter);
 app.use("/api/teamMembers", teamMemberRouter);
 app.use("/api/webinars", webinarRouter);
 app.use("/api/workshops", workshopRouter);
-app.use("/api/signup",userRouter);
+app.use("/api/user",userRouter);
 // IF A ROUTE NOT AVAILABLE
 app.all("*", async (req, res) => {
     res.status(404).json({

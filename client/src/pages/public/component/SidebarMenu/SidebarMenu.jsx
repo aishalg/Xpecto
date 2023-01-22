@@ -86,6 +86,14 @@ function SidebarMenu() {
               ABOUT US
             </Link>
           </button>
+          <button
+            style={{ "--animation-order": 2 }}
+            className={styles.sidebarBtn}
+          >
+            <Link smooth to="/profile" onClick={() => setSidebarOpen(false)}>
+              PROFILE
+            </Link>
+          </button>
           {/* <button
             style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
