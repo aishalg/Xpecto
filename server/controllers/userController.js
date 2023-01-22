@@ -47,3 +47,23 @@ exports.saveuserDetail=async(req,res)=>{
     })
   }
 }
+
+exports.profilepage=(async(req,res)=>{
+  try {
+    const useremail =req.body.user;
+   const data = await User.findOne({email:useremail});
+   console.log("vnjdnv",data)
+   res.status(200).json({
+    status:"success",
+    message:"Data saved Successfuly",
+    data:data
+
+})
+  } catch (error) {
+    console.log(err);
+    res.status(400).json({
+      status:"failed",
+      message:"Error Occure please try Again"
+    })
+  }
+})
