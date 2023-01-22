@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import styles from "./SidebarMenu.module.css";
 
 function SidebarMenu() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [prevColor, setPrevColor] = useState("#faea09");
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      setPrevColor(
+        document.body.style.getPropertyValue("--current-page-color")
+      );
+      document.body.style.setProperty("--current-page-color", "#ccf1e0");
+      document.body.style.overflow = "hidden";
+    } else {
+      if (prevColor) document.body.style.setProperty("--current-page-color", prevColor);
+      document.body.style.overflow = "unset";
+    }
+  }, [sidebarOpen]);
 
   return (
     <>
@@ -59,13 +74,17 @@ function SidebarMenu() {
             style={{ "--animation-order": 1 }}
             className={styles.sidebarBtn}
           >
-            <Link to="/">HOME</Link>
+            <HashLink smooth to="/#" onClick={() => setSidebarOpen(false)}>
+              HOME
+            </HashLink>
           </button>
           <button
             style={{ "--animation-order": 2 }}
             className={styles.sidebarBtn}
           >
-            <Link to="/about">ABOUT US</Link>
+            <HashLink smooth to="/#about" onClick={() => setSidebarOpen(false)}>
+              ABOUT US
+            </HashLink>
           </button>
           <button
             style={{ "--animation-order": 3 }}

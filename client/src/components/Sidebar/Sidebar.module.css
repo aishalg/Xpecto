@@ -1,6 +1,6 @@
 .hamburger-menu {
     position: absolute;
-    top: 3%;
+    top: 2%;
     width: 100%;
     aspect-ratio: 1 / 1;
 }
@@ -9,11 +9,12 @@
     height: 100%;
     position: fixed;
     left: 0;
-    z-index: 1;
+    z-index: 100;
 }
 
 .navbar {
     height: 100%;
+    transition: all 2s;
 }
 
 .navbar-blackboxes {
@@ -40,14 +41,15 @@
     position: absolute;
     top: 15%;
     left: 50%;
-    transform: translateX(-55%);
+    transform: translateX(-100%);
     width: 9px;
-    border-right: 4px black solid;
+    border-right: 2px black solid;
     height: 55%;
     z-index: 1;
 }
 
 .scrollbar {
-    background: black;
-    width: 20px;
+    position: absolute;
+    width: 4px;
+    right:0;
 }

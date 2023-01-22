@@ -1,21 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import SidebarMenu from '../../pages/public/component/SidebarMenu/SidebarMenu';
+import {ReactComponent as NavbarSvg} from "../../svg/navbar.svg"
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
+    const scrollContRef = useRef(null);
+    const scrollBtnRef = useRef(null);
 
     useEffect(() => {
-        const script = document.createElement('script');
-        script.src=`${process.env.PUBLIC_URL}js/scrollbar-handler.js`;
-        script.async=true;
-        document.body.appendChild(script);
-    }, []);
+        const scrollbar = scrollBtnRef.current;
+        const container = scrollContRef.current;
+
+        const scrollFunc = () => {
+            const height = document.body.scrollHeight - window.innerHeight;
+            scrollbar.style.height = `${window.innerHeight / height * container.clientHeight}px`;
+            scrollbar.style.marginTop = `${window.scrollY/height*(container.clientHeight-scrollbar.clientHeight)}px`
+        }
+        scrollFunc();
+        
+        window.addEventListener("scroll", scrollFunc);
+        window.addEventListener("resize", scrollFunc);
+
+        return () => {
+            window.removeEventListener("scroll", scrollFunc);
+            window.removeEventListener("resize", scrollFunc);
+        }
+    }, [scrollContRef, scrollBtnRef]);
 
 
 
     return (
         <div className={styles['navbar-container']}>
-            <img className={styles['navbar']} src={`${process.env.PUBLIC_URL}home/navbar.svg`} alt='navbar' />
+            <NavbarSvg className={styles['navbar']}/>
             <div className={styles['hamburger-menu']}>
                 <SidebarMenu />
             </div>
@@ -26,9 +42,9 @@ const Sidebar = () => {
                 <div className={styles['navbar-blackbox']} />
             </div>
 
-            {/* <div className={styles['scrollbar-container']} id='scrollbar-container'>
-                <div  className={styles['scrollbar']} id='scrollbar' />
-            </div> */}
+            <div ref={scrollContRef} className={styles['scrollbar-container']} id='scrollbar-container'>
+                <img ref={scrollBtnRef} src={`${process.env.PUBLIC_URL}home/scrollbtn.svg`} className={styles['scrollbar']} id='scrollbar' />
+            </div>
         </div>
     )
 }

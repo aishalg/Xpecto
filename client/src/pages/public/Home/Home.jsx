@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { Button } from "@mui/material";
 import { useState,useEffect } from "react";
 import axios from "axios";
@@ -10,6 +11,10 @@ import { useSelector } from 'react-redux';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 import { useDispatch } from "react-redux";
 import *  as action from "../../../actions/index"
+import About from "../component/About/About";
+import { useRef } from "react";
+import { ReactComponent as FixedLogo } from "../../../svg/xpecto-logo.svg";
+import { ReactComponent as BackToTop } from "../../../svg/backtop-btn.svg";
 
 export default function  Home(){
 	const user=useSelector((state)=>state.userinfo);
@@ -66,13 +71,59 @@ export default function  Home(){
 			"_self"
 		);
 	};
+
+	const [fixedLogoVisible, setFixedLogoVisible] = useState(false);
+	useEffect(()=>{
+		const scrollEvent = () => {
+			if(window.scrollY > window.screen.height / 2){
+				setFixedLogoVisible(true);
+			}else{
+				setFixedLogoVisible(false);
+			}
+		}
+		window.addEventListener("scroll", scrollEvent);
+		return () => {
+			window.removeEventListener("scroll", scrollEvent);
+		}	
+	},[]);
+
+	// color change on scroll
+	const mainLogoRef = useRef(null);
+	useEffect(() => {
+    const current = mainLogoRef.current;
+    const scrollEvent = () => {
+      const rect = current.getBoundingClientRect();
+      const top = rect.top;
+      const bottom = rect.bottom;
+      const mid = top + current.clientHeight / 2;
+      const midIntersecting = top <= 2 && mid <= window.screen.height && mid >= 0;
+      const isElementVisible = top <= 2 && bottom >= window.screen.height;
+      // console.log(top, bottom, window.screen.height,isElementVisible)
+      if (midIntersecting || isElementVisible) {
+        // console.log("here",midIntersecting)
+        document.body.style.setProperty(
+          "--current-page-color",
+          current.getAttribute("data-color")
+        );
+      }
+    };
+	window.addEventListener("scroll", scrollEvent);
+    return () => {
+		window.removeEventListener("scroll", scrollEvent);		
+	};
+  }, [mainLogoRef]);
 	// console.log("usedetail " ,user)
     return (
         <>
 		<div className={styles['page']} style={{backgroundImage: `url(${process.env.PUBLIC_URL}home/background.jpg)`}}>
+			<div className={`${styles["fixed-logo"]} ${fixedLogoVisible && styles["fixed-logo-visible"]}`}>
+				<FixedLogo />
+			</div>
+			<HashLink smooth to="/#" className={`${styles["back-to-top"]} ${fixedLogoVisible && styles["back-to-top-visible"]}`}>
+				<BackToTop />
+			</HashLink>
 			<Sidebar />
-		
-			<div className={styles['section1']}>
+			<div ref={mainLogoRef} data-color="#faea09" className={styles['section1']} id="#">
 				<img className={styles['section1-plus']} src={`${process.env.PUBLIC_URL}home/plusplus.svg`} alt='plusplusgraphic' />
 				<img className={styles['mainlogo']} src={`${process.env.PUBLIC_URL}home/mainlogo.svg`} alt='XpectoLogo' />
 				<img className={styles['section1-rightrectangle']} src={`${process.env.PUBLIC_URL}home/rightrectangle.svg`} alt='rightrectangle' />
@@ -80,10 +131,11 @@ export default function  Home(){
 				<img className={styles['section1-bottomleftgraphic']} src={`${process.env.PUBLIC_URL}home/lineslines.svg`} alt='bottomleftgraphic' />
 				<img className={styles['section1-register']} src={`${process.env.PUBLIC_URL}home/register.svg`} alt='register' />
 			</div>
-			<div style={{height: '300vh'}}>
-		
+			<div className={styles['section1']} id="about">
+				<About />
 			</div>
-			</div>
+			<div style={{height: '300vh'}}></div>
+		</div>
         <div className={styles["page"]}>
             <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
         </div>
