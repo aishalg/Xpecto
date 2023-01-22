@@ -52,13 +52,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0 var(--sidebar-padding);
+  padding-top: 40px;
   width: 400px;
   min-width: 30%;
   max-width: calc(
     100% - var(--sidebar-left-offset) - 2 * var(--sidebar-padding)
   );
-  height: 100%;
+  max-height: calc(100% - 30px);
   top: 0;
   left: 0;
 }
@@ -70,7 +72,7 @@
   font-size: x-large;
   border: none;
   height: 4rem;
-  margin: auto 0;
+  margin: 20px auto;
   width: calc(var(--sidebar-button-width) * 1%);
   cursor: pointer;
   transform: translateX(
@@ -107,8 +109,8 @@
 
 @media screen and (max-width: 450px) {
   .sidebarBtn {
-    --sidebar-button-width: 40;
-    font-size: small;
+    /* --sidebar-button-width: 40; */
+    font-size: medium;
   }
   .sidebarBackdrop {
     --sidebar-left-offset: 0px;
