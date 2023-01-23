@@ -5,6 +5,7 @@
   z-index: 100;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 }
 .navbar svg {
@@ -68,9 +69,4 @@
   width: 4px;
   right: 0;
 }
-@media screen and (max-width: 450px) {
-  .navbar-middle,
-  .navbar-bottom {
-    display: none;
-  }
-}
+
