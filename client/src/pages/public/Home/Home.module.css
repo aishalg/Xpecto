@@ -40,6 +40,7 @@ body {
 
 .section1-scrolldown {
   position: absolute;
+  cursor: pointer;
   bottom: 6vh;
   left: 50vw;
   width: max(20vw, 150px);

@@ -79,9 +79,9 @@ export default function Home() {
         setFixedLogoVisible(false);
       }
     };
-    window.addEventListener("scroll", scrollEvent);
+    window.addEventListener("scroll", scrollEvent, { passive: true });
     return () => {
-      window.removeEventListener("scroll", scrollEvent);
+      window.removeEventListener("scroll", scrollEvent, { passive: true });
     };
   }, []);
 
@@ -106,9 +106,9 @@ export default function Home() {
         );
       }
     };
-    window.addEventListener("scroll", scrollEvent);
+    window.addEventListener("scroll", scrollEvent, { passive: true });
     return () => {
-      window.removeEventListener("scroll", scrollEvent);
+      window.removeEventListener("scroll", scrollEvent, { passive: true });
     };
   }, [mainLogoRef]);
   // console.log("usedetail " ,user)
@@ -162,11 +162,16 @@ export default function Home() {
             src={`${process.env.PUBLIC_URL}/home/rightrectangle.svg`}
             alt="rightrectangle"
           />
-          <img
+          <HashLink
+            smooth
+            to="/#about"
             className={styles["section1-scrolldown"]}
-            src={`${process.env.PUBLIC_URL}/home/scrolldown.svg`}
-            alt="scrolldown"
-          />
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/home/scrolldown.svg`}
+              alt="scrolldown"
+            />
+          </HashLink>
           <img
             className={styles["section1-bottomleftgraphic"]}
             src={`${process.env.PUBLIC_URL}/home/lineslines.svg`}

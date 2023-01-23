@@ -4,6 +4,10 @@ import { ReactComponent as NavbarSvgTop } from "../../svg/navbar-top.svg";
 import { ReactComponent as NavbarSvgMiddle } from "../../svg/navbar-middle.svg";
 import { ReactComponent as NavbarSvgBottom } from "../../svg/navbar-bottom.svg";
 import styles from "./Sidebar.module.css";
+// social icons
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Sidebar = () => {
   const scrollContRef = useRef(null);
@@ -16,10 +20,10 @@ const Sidebar = () => {
     const scrollFunc = () => {
       const height = document.body.scrollHeight;
       if(height - window.innerHeight < 0) {
-        scrollbar.style.display = "none";
+        scrollbar.style.height = "0px";
         return;
       };
-      scrollbar.style.display = "block";
+      
       scrollbar.style.height = `${
         (window.innerHeight / height) * container.clientHeight
       }px`;
@@ -30,12 +34,12 @@ const Sidebar = () => {
     };
     scrollFunc();
 
-    window.addEventListener("scroll", scrollFunc);
-    window.addEventListener("resize", scrollFunc);
+    window.addEventListener("scroll", scrollFunc, { passive: true });
+    window.addEventListener("resize", scrollFunc, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", scrollFunc);
-      window.removeEventListener("resize", scrollFunc);
+      window.removeEventListener("scroll", scrollFunc, { passive: true });
+      window.removeEventListener("resize", scrollFunc, { passive: true });
     };
   }, [scrollContRef, scrollBtnRef]);
 
@@ -65,10 +69,27 @@ const Sidebar = () => {
       <div className={`${styles["navbar-bottom"]} ${styles["navbar"]}`}>
         <NavbarSvgBottom />
         <div className={styles["navbar-blackboxes"]}>
-          <div className={styles["navbar-blackbox"]} />
-          <div className={styles["navbar-blackbox"]} />
-          <div className={styles["navbar-blackbox"]} />
-          <div className={styles["navbar-blackbox"]} />
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/xpecto-tech/"
+            className={styles["navbar-icons"]}
+          >
+            <LinkedInIcon />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/xpecto.tech"
+            className={styles["navbar-icons"]}
+          >
+            <InstagramIcon />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.twitter.com/XpectoTech"
+            className={styles["navbar-icons"]}
+          >
+            <TwitterIcon />
+          </a>
         </div>
       </div>
     </div>
