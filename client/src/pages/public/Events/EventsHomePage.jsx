@@ -37,7 +37,7 @@ const EventsHomePage = () => {
       <Sidebar />
       <div
         data-color="#F8C456"
-        ref={eventsRef}
+       ref ={eventsRef}
         className={styles["events-page-container"]}
         style={{
           backgroundImage: `url(${process.env.PUBLIC_URL}/home/background.jpg)`,

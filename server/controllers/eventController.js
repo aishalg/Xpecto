@@ -15,7 +15,7 @@ exports.getEvents=async(req,res)=>{
 
 exports.getEvent=async(req,res)=>{
     try {
-        const event= await Event.findOne({_id:req.params.id});
+        const event= await Event.findOne({name:req.params.eventname});
     context={
         status:"success",
         data:event
