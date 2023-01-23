@@ -30,6 +30,19 @@ text-align: justify;
     }
 }
 
+.just{
+    border:3px solid  #1AF527;
+    padding: 8px;
+    margin-top: 10px;
+border-radius: 3px;
+
+}
+.just:hover{
+ background-color:  #1AF527;
+ color:  #FAEA09;
+ font-weight: bolder;
+ padding: 10px;
+}
 @media screen and (max-width:767px) {
     .aboutcontainer{
         width: 90%;

@@ -81,9 +81,9 @@ export default function Home() {
       );
       console.log(resp);
       localStorage.setItem("UserJwtToken", resp.data.jwtToken);
-      // if (resp.data.isNewUser) {
+      if (resp.data.isNewUser) {
         navigate("/signup");
-      // }
+      }
 
       window.location.reload(false);
     } catch (error) {
@@ -100,7 +100,6 @@ export default function Home() {
       const data = await axios.get(url);
       setLoadingUser(false);
       const usrDATA = data.data.user;
-      console.log(data.data.user);
       setuserdetails((userdetails) => ({
         ...userdetails,
         ...usrDATA,

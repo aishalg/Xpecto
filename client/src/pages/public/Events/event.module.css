@@ -1,5 +1,17 @@
+.fixed-logo {
+  display: none;
+  position: fixed;
+  top: 2%;
+  right: 0%;
+  height: max(15vh, 20vw);
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+}
+.fixed-logo-visible {
+  display: unset;
+}
 .event-main {
-  background-color: black;
+  /* background-color: black; */
   color: black;
   margin:0px;
   padding: 30px;
@@ -10,10 +22,11 @@
   font-size: 4rem;
   text-align: center;
   font-weight: 700;
-  margin-top: -1px;
+  margin-top: 20px;
   margin-bottom: -1px;
-  text-shadow: 1px 1.8px 3px #03f7f7;
-  color: #03f7f7;
+  text-shadow: 1px 1.8px 3px #FAEA09;
+  color: #FAEA09;
+  margin-bottom: 20px;
 }
 .event-card{
   display: flex;
@@ -72,7 +85,7 @@
 }
 .event-club{
   font-size: medium;
-  color: #03f7f7;
+  color:#FAEA09;
 text-align: start;}
 .event-prize-money {
   width: 100%;
@@ -100,7 +113,7 @@ text-align: start;}
   border-radius: 100vw;
 }
 .event-desc::-webkit-scrollbar-thumb {
-  background: linear-gradient(#2b29f9, #03f7f7);
+  background: linear-gradient(#2b29f9,#FAEA09);
   border-radius: 100vw;
 }
 
@@ -150,7 +163,13 @@ text-align: start;}
   transition: transform 0.25s ease;
 }
 .event-register:hover {
-  background-color: #03f7f7;
+  background-color: #FAEA09;
   color: #000;
   transform: scale(1.05);
+}
+@media screen and (min-width:767px) {
+  .heading{
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
 }

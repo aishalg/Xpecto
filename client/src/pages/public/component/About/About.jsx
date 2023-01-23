@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react'
-import style from"./About.module.css"
+import styles from"./About.module.css"
+import { Button, Grid } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 export default function About() {
   const aboutRef = useRef(null);
-
+const navigate = useNavigate();
   useEffect(() => {
     const current = aboutRef.current;
     const scrollEvent = () => {
@@ -15,7 +17,7 @@ export default function About() {
       // console.log(top, bottom, window.screen.height,isElementVisible)
       if (midIntersecting || isElementVisible) {
         // console.log("here",midIntersecting)
-        document.body.style.setProperty(
+        document.body.styles.setProperty(
           "--current-page-color",
           current.getAttribute("data-color")
         );
@@ -33,10 +35,10 @@ export default function About() {
       <div
         ref={aboutRef}
         data-color="#1AF527"
-        className={style["aboutcontainer"]}
+        className={styles["aboutcontainer"]}
       >
-        <p className={style["heading1"]}>ABOUT US</p>
-        <p className={style["aboutcontent"]}>
+        <p className={styles["heading1"]}>ABOUT US</p>
+        <p className={styles["aboutcontent"]}>
           <br/>
           XPECTO’23 is the second edition of IIT Mandi’s afresh Inter College Technical Fest, organised by the Science and Technical Council (SNTC) at IIT Mandi. 
           <br />
@@ -61,6 +63,22 @@ export default function About() {
           hackathons, contests, and conferences, all topped with an icing of
           entertaining shows and events.
         </p>
+        <Grid container  >
+       {/* <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" padding={2} color="yellow">  <TextField   id="outlined-basic" size="small" label="Firstname" value={user.firstname} onChange={signupchange}name="firstname"variant="outlined" disabled/>
+</Grid>
+       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" padding={2}>  <TextField id="outlined-basic" required size="small" label="Lastname" value={newdata.lastname} onChange={signupchange}name="lastname"variant="outlined" />
+</Grid> */}
+       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" onClick={()=>{
+       navigate("/oldsponsors")
+       }}><div  className={styles["just"]}>Past Sponsors</div> 
+</Grid>
+       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" onClick={()=>{
+        navigate("/oldevents")
+       }}> <div  className={styles["just"]}>Past Events</div> 
+</Grid>
+       
+
+       </Grid>
       </div>
     </>
   );
