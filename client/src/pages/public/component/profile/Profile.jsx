@@ -12,7 +12,7 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const navigate = useNavigate();
-  const [loadingUser, setLoadingUser] = useState(true);
+  const [loadingUser, setLoadingUser] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   if (!loadingUser && !isAuthenticated) {
@@ -90,35 +90,42 @@ const Profile = () => {
       >
         <FixedLogo />
       </div>
-            {/* <Sidebar/> */}
-            <div
-             data-color="#f8e856"
-             ref={eventsRef}
-             className={styles["events-page-container"]}
-             style={{
-               backgroundImage: `url(${process.env.PUBLIC_URL}/home/background.jpg)`,
-               backgroundRepeat: "no-repeat",
-               backgroundSize: "cover",
-               //   backgroundPosition: "center",
-               backgroundAttachment: "fixed",
-               //   height: "100vh",
-             }}
-             >
-      <div className={styles["pback"]}>
-      <div className={styles["containers"]}>
-      <div className={styles["card-container"]}>
-      <img className={styles["round"]} src={imageurl} alt={userdetails.data.displayName} />
-      <h3>Name: {userdetails.data.displayName}</h3>
-      <h6>Email ; {userdetails.data.email}</h6>
-       <h6>Phone number: {userdetails.data.phoneNumber}</h6>      
-    <Button onClick={()=>{
-       navigate("/")
-    }}>Home</Button>
-    </div>
-    </div>
-    
-    </div>
-    </div>
+
+      <div
+        data-color="#f8e856"
+        ref={eventsRef}
+        className={styles["events-page-container"]}
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/home/background.jpg)`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          //   height: "100vh",
+        }}
+      >
+        <div className={styles["pback"]}>
+          <div className={styles["containers"]}>
+            <div className={styles["card-container"]}>
+              <img
+                className={styles["round"]}
+                src={imageurl}
+                alt={userdetails.displayName}
+              />
+              <h3>Name: {userdetails.displayName}</h3>
+              <h6>Email ; {userdetails.email}</h6>
+              <h6>Phone number: {userdetails.phoneNumber}</h6>
+              <Button
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Home
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
     )
 };

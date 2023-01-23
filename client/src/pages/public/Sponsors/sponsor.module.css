@@ -1,7 +1,19 @@
+.fixed-logo {
+    display: none;
+    position: fixed;
+    top: 2%;
+    right: 0%;
+    height: max(15vh, 20vw);
+    aspect-ratio: 1 / 1;
+  }
+  .fixed-logo-visible {
+    display: unset;
+  }
+
 .container{
     margin-left: 0px;
     margin-right: 0px;
-    color:#03f7f7;
+    color:#FAEA09;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left:20px ;
@@ -9,7 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: black;
+    /* background-color: black; */
 }
 .container2{
     margin-top: 10px;
@@ -25,18 +37,18 @@
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
-    text-shadow: 1px 1.5px 3px #03f7f7;
+    text-shadow: 1px 1.5px 3px #FAEA09;
 
 }
 .heading2{
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    text-shadow: 1px 1.8px 3px #03f7f7;
+    text-shadow: 1px 1.8px 3px#FAEA09;
 }
 .sponsordiv{
     background-color: #191516;
-    border: 1px solid #03f7f7;
+    border: 1px solid#FAEA09;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -59,7 +71,7 @@
     
 }
 .eventpartners{
-    color: #03f7f7;
+    color: #FAEA09;
     font-size: 1.1rem;
     font-weight: 700;
 }
@@ -79,4 +91,12 @@
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+}
+
+@media screen and (max-width:767px) {
+    
+    .heading1{
+        font-size: 2rem;
+    margin-top: 50px;
+    }
 }

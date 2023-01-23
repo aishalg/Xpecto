@@ -44,7 +44,6 @@ function SidebarMenu() {
       const data = await axios.get(url);
       setLoadingUser((prev) => false);
       const usrDATA = data.data.user;
-      console.log(data.data.user);
       setuserdetails((userdetails) => ({
         ...userdetails,
         ...usrDATA,

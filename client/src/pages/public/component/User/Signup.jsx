@@ -39,7 +39,6 @@ const navigate = useNavigate();
         const userResponse = await axios.get(
           `${process.env.REACT_APP_BACKENDURL}/api/user`
         );
-        console.log(userResponse);
         setUser((prev) => userResponse.data.user);
       } catch (err) {
         navigate("/");
@@ -47,7 +46,6 @@ const navigate = useNavigate();
     };
     fun();
   }, []);
-  console.log("from sign in page info ", user);
   const [newdata, setnewdata] = useState(user);
   const nav = () => [navigate("/")];
 
