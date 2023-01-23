@@ -15,6 +15,9 @@ import About from "../component/About/About";
 import { useRef } from "react";
 import { ReactComponent as FixedLogo } from "../../../svg/xpecto-logo.svg";
 import { ReactComponent as BackToTop } from "../../../svg/backtop-btn.svg";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import Instagram from "@mui/icons-material/Instagram";
+import Twitter from "@mui/icons-material/Twitter";
 
 export default function Home() {
   const user = useSelector((state) => state.userinfo);
@@ -152,11 +155,38 @@ export default function Home() {
             src={`${process.env.PUBLIC_URL}/home/plusplus.svg`}
             alt="plusplusgraphic"
           />
-          <img
-            className={styles["mainlogo"]}
-            src={`${process.env.PUBLIC_URL}/home/mainlogo.svg`}
-            alt="XpectoLogo"
-          />
+          <div className={styles["mainlogo"]}>
+            <img
+              src={`${process.env.PUBLIC_URL}/home/mainlogo.svg`}
+              alt="XpectoLogo"
+            />
+            {/* temporary solution start */}
+            <div className={styles["social-icons"]}>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/xpecto-tech/"
+                className={styles["home-icons"]}
+              >
+                <LinkedIn />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/tech.xpecto"
+                className={styles["home-icons"]}
+              >
+                <Instagram />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.twitter.com/XpectoTech"
+                className={styles["home-icons"]}
+              >
+                <Twitter />
+              </a>
+            </div>
+            {/* temporary solution end */}
+          </div>
+
           <img
             className={styles["section1-rightrectangle"]}
             src={`${process.env.PUBLIC_URL}/home/rightrectangle.svg`}
