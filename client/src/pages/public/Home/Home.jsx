@@ -18,7 +18,9 @@ import { ReactComponent as BackToTop } from "../../../svg/backtop-btn.svg";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Instagram from "@mui/icons-material/Instagram";
 import Twitter from "@mui/icons-material/Twitter";
-import LayoutPage from "../component/Layout/Layout";
+import { GoogleLogin } from "@react-oauth/google";
+import BasicModal from "./BasicModal";
+import Modal from "@mui/material/Modal";import LayoutPage from "../component/Layout/Layout";
 
 export default function Home() {
   const user = useSelector((state) => state.userinfo);
@@ -27,46 +29,95 @@ export default function Home() {
   const navigate = useNavigate();
   const [isuser, setisuser] = useState(false);
   const [bool, setbool] = useState(false);
-  const getUser = async (props) => {
-    try {
-      const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
-      const { data } = await axios.get(url, { withCredentials: true });
-      setnewuser((newuser) => ({
-        ...newuser,
-        email: data.data.email,
-        displayname: data.data.displayName,
-        image: data.data.image,
-        firstname: data.data.firstName,
-      }));
-      const d = (newuser) => {
-        dispatch(action.changeuserinfo(newuser));
-      };
-      d(newuser);
-      setisuser(true);
-      if (data.isnewuser) {
-        setbool(true);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  // const getUser = async (props) => {
+  //   try {
+  //     const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
+  //     const { data } = await axios.get(url, { withCredentials: true });
+  //     setnewuser((newuser) => ({
+  //       ...newuser,
+  //       email: data.data.email,
+  //       displayname: data.data.displayName,
+  //       image: data.data.image,
+  //       firstname: data.data.firstName,
+  //     }));
+  //     const d = (newuser) => {
+  //       dispatch(action.changeuserinfo(newuser));
+  //     };
+  //     d(newuser);
+  //     setisuser(true);
+  //     if (data.isnewuser) {
+  //       setbool(true);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   //  if(data.isnewuser){
   // 	navigate("/signup");
   //  }
-  useEffect(() => {
-    getUser();
-    const nav = () => {
-      if (bool) {
-        navigate("/signup");
-      }
-    };
-    nav();
-  }, [isuser, user]);
+  // useEffect(() => {
+  //   getUser();
+  //   const nav = () => {
+  //     if (bool) {
+  //       navigate("/signup");
+  //     }
+  //   };
+  //   nav();
+  // }, [isuser, user]);
 
   // const usera = userDetails.user;
   // const logout = () => {
   //   window.open(`${process.env.REACT_APP_BACKENDURL}/auth/logout`, "_self");
   // };
+  const loginSuccessHandler = async (cred) => {
+    try {
+      const resp = await axios.post(
+        `${process.env.REACT_APP_BACKENDURL}/api/user/login`,
+        {
+          credential: cred,
+        }
+      );
+      console.log(resp);
+      localStorage.setItem("UserJwtToken", resp.data.jwtToken);
+      // if (resp.data.isNewUser) {
+        navigate("/signup");
+      // }
+
+      window.location.reload(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [userdetails, setuserdetails] = useState({ data: {} });
+  const [imageurl, setimageurl] = useState();
+  const getprofiledata = async () => {
+    try {
+      const url = `${process.env.REACT_APP_BACKENDURL}/api/user`;
+      const data = await axios.get(url);
+      setLoadingUser(false);
+      const usrDATA = data.data.user;
+      console.log(data.data.user);
+      setuserdetails((userdetails) => ({
+        ...userdetails,
+        ...usrDATA,
+      }));
+      setimageurl(usrDATA.image);
+      if (usrDATA.email) {
+        setIsAuthenticated((prev) => true);
+      }
+    } catch (err) {
+      setIsAuthenticated((prev) => false);
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getprofiledata();
+  }, []);
   const googleAuth = async () => {
     window.open(
       `${process.env.REACT_APP_BACKENDURL}/auth/google/callback`,
@@ -199,11 +250,17 @@ export default function Home() {
             src={`${process.env.PUBLIC_URL}/home/lineslines.svg`}
             alt="bottomleftgraphic"
           />
+          {!loadingUser && !isAuthenticated ? (
+
           <img
             className={styles["section1-register"]}
             src={`${process.env.PUBLIC_URL}/home/register.svg`}
             alt="register"
+            onClick={handleOpen}
           />
+          ) : (
+            ""
+          )}
           {/* <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
       <img
             className={styles["section1-register"]}
@@ -239,6 +296,23 @@ export default function Home() {
       {/* <div>
         <Razorpay />
       </div> */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div>
+          <GoogleLogin
+            onSuccess={(credentialResponse) => {
+              loginSuccessHandler(credentialResponse.credential);
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+        </div>
+      </Modal>
     </>
   );
 }

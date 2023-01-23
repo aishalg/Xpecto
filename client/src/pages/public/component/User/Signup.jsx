@@ -9,28 +9,63 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 export default function Signup() {
-       const user=useSelector((state)=>state.userinfo);
-       const navigate=useNavigate();
-  const [newdata,setnewdata]=useState(user)
-   const nav=()=>[
-       navigate("/")
-   ]
-   const savecurrentuser=async()=>{
-       try{   
-              const url = `${process.env.REACT_APP_BACKENDURL}/api/user/signup`;
-              const  data  = await axios.post(url,{
-                user:user.email,
-                data:newdata
-              });
-              nav();
-         }catch{
-              console.log("data saved sifnufreb");
-        }
-   }
+//        const user=useSelector((state)=>state.userinfo);
+//        const navigate=useNavigate();
+//   const [newdata,setnewdata]=useState(user)
+//    const nav=()=>[
+//        navigate("/")
+//    ]
+//    const savecurrentuser=async()=>{
+//        try{   
+//               const url = `${process.env.REACT_APP_BACKENDURL}/api/user/signup`;
+//               const  data  = await axios.post(url,{
+//                 user:user.email,
+//                 data:newdata
+//               });
+//               nav();
+//          }catch{
+//               console.log("data saved sifnufreb");
+//         }
+//    }
 
-  const signupchange=({currentTarget:input})=>{
-    setnewdata({...newdata,[input.name]:input.value});
-  }
+//   const signupchange=({currentTarget:input})=>{
+//     setnewdata({...newdata,[input.name]:input.value});
+//   }
+const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const fun = async () => {
+      try {
+        const userResponse = await axios.get(
+          `${process.env.REACT_APP_BACKENDURL}/api/user`
+        );
+        console.log(userResponse);
+        setUser((prev) => userResponse.data.user);
+      } catch (err) {
+        navigate("/");
+      }
+    };
+    fun();
+  }, []);
+  console.log("from sign in page info ", user);
+  const [newdata, setnewdata] = useState(user);
+  const nav = () => [navigate("/")];
+
+  const savecurrentuser = async () => {
+    try {
+      const url_ = `${process.env.REACT_APP_BACKENDURL}/api/user`;
+      console.log(url_);
+      const resp = await axios.patch(url_, {
+        ...newdata,
+      });
+      console.log(resp);
+      nav();
+    } catch {}
+  };
+
+  const signupchange = ({ currentTarget: input }) => {
+    setnewdata({ ...newdata, [input.name]: input.value });
+  };
   return (
     <>
     <div  className={style.container}>
