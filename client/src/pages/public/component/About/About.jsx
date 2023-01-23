@@ -21,10 +21,9 @@ export default function About() {
         );
       }
     };
-    window.addEventListener("scroll", scrollEvent);
+    window.addEventListener("scroll", scrollEvent, { passive: true });
     return () => {
-      console.log("clean up") 
-      window.removeEventListener("scroll", scrollEvent);
+      window.removeEventListener("scroll", scrollEvent, { passive: true });
     };
   }, [aboutRef]);
 
