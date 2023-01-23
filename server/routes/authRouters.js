@@ -5,7 +5,7 @@ const usercontroller=require("../controllers/userController")
 router.route("/login").get(authcontroller.loginsuccess)
 // router.route("/login/failed").get(authcontroller.loginfail)
 router.route("/google").get(authcontroller.google)
-router.route("/auth/logout").get(authcontroller.logout);
+router.route("/logout").get(authcontroller.logout);
 router.get("/google",passport.authenticate("google",{scope:["profile","email"]}));
 router.get(
     "/google/callback",

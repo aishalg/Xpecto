@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import styles from "./SidebarMenu.module.css";
-
+import axios from "axios";
 function SidebarMenu() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [prevColor, setPrevColor] = useState("#faea09");
@@ -19,7 +19,48 @@ function SidebarMenu() {
       document.body.style.overflow = "unset";
     }
   }, [sidebarOpen]);
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setSidebarOpen((prev) => false);
+      }
+    };
+    document.addEventListener("keydown", keyDownHandler);
 
+    // 👇️ clean up event listener
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
+
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userdetails, setuserdetails] = useState({ data: {} });
+  const [imageurl, setimageurl] = useState();
+  const getprofiledata = async () => {
+    try {
+      const url = `${process.env.REACT_APP_BACKENDURL}/api/user`;
+      const data = await axios.get(url);
+      setLoadingUser((prev) => false);
+      const usrDATA = data.data.user;
+      console.log(data.data.user);
+      setuserdetails((userdetails) => ({
+        ...userdetails,
+        ...usrDATA,
+      }));
+      setimageurl(usrDATA.image);
+      if (usrDATA.email) {
+        setIsAuthenticated((prev) => true);
+      }
+    } catch (err) {
+      setIsAuthenticated((prev) => false);
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getprofiledata();
+  }, []);
   return (
     <>
       <button
@@ -86,20 +127,32 @@ function SidebarMenu() {
               ABOUT US
             </Link>
           </button>
-          <button
+          {/* <button
             style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
           >
             <Link smooth to="/profile" onClick={() => setSidebarOpen(false)}>
               PROFILE
             </Link>
-          </button>
+          </button> */}
           <button
             style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
           >
             <Link to="/events">EVENTS</Link>
           </button>
+          {!loadingUser && isAuthenticated ? (
+            <button
+              style={{ "--animation-order": 3 }}
+              className={styles.sidebarBtn}
+            >
+              <Link smooth to="/profile" onClick={() => setSidebarOpen(false)}>
+                PROFILE
+              </Link>
+            </button>
+          ) : (
+            ""
+          )}
           {/* <button
             style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
