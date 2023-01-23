@@ -27,7 +27,7 @@
 .fixed-logo {
   display: none;
   position: fixed;
-  top: 5%;
+  top: 2%;
   right: 0%;
   height: max(15vh, 20vw);
   aspect-ratio: 1 / 1;
@@ -43,6 +43,7 @@
 
 main {
   padding: 5rem;
+  padding-top: 2rem;
   margin-left: 2.5rem;
   display: flex;
   flex-wrap: wrap;
