@@ -25,10 +25,16 @@ function Scrollbar() {
     };
     scrollFunc();
 
+    // scroll refresh
+    // const interval = setInterval(()=>{
+    //   scrollFunc()
+    // },2000);
+
     window.addEventListener("scroll", scrollFunc, { passive: true });
     window.addEventListener("resize", scrollFunc, { passive: true });
 
     return () => {
+      // clearInterval(interval)
       window.removeEventListener("scroll", scrollFunc, { passive: true });
       window.removeEventListener("resize", scrollFunc, { passive: true });
     };

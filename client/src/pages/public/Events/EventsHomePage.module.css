@@ -2,9 +2,6 @@
   --main-color: #f8c456;
 }
 
-.events-page-container {
-}
-
 .events-page-heading {
   margin: 0;
   padding: 0;
@@ -12,7 +9,7 @@
   text-align: left;
   font-size: 5rem;
   padding: 2.5rem;
-  margin-left: 5rem;
+  margin-left: 3rem;
   letter-spacing: 5px;
 }
 
@@ -20,7 +17,7 @@
   .events-page-heading {
     font-size: 4rem;
     padding: 2rem;
-    margin-left: 2.5rem;
+    margin-left: 1.5rem;
   }
 }
 
@@ -44,7 +41,6 @@
 main {
   padding: 5rem;
   padding-top: 2rem;
-  margin-left: 2.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 25px;

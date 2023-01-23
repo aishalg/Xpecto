@@ -22,6 +22,7 @@ import * as action from "./actions/index"
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
+import EventOpen from "./pages/public/Events/EventOpen";
 // import Navbar from "./components/admin/Navbar/Navbar";
 function App() {
   const user = useSelector((state) => state.userinfo);
@@ -54,11 +55,12 @@ function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<EventsHomePage />} />
+          <Route path="/events/:id" element={<EventOpen />} />
           <Route path="/sponsor" element={<OldSponsor />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />

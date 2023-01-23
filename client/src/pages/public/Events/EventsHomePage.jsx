@@ -6,9 +6,11 @@ import styles from "./EventsHomePage.module.css";
 import axios from "axios";
 import EventCardNew from "./EventCardNew";
 import { ReactComponent as FixedLogo } from "../../../svg/xpecto-logo.svg";
+import { oldeventdetails } from "./oldevents";
+import Layout from "../component/Layout/Layout";
 const EventsHomePage = () => {
     const [events,setevents]=useState({data:[]})
-  const eventsRef = useRef(null);
+    
   const getAllevents=async()=>{
     try{   
            const url = `${process.env.REACT_APP_BACKENDURL}/api/events/`;
@@ -20,35 +22,23 @@ const EventsHomePage = () => {
       }catch{
            console.log("data saved sifnufreb");
      }
-}
-  useEffect(() => {
-    const current = eventsRef.current;
-    document.body.style.setProperty(
-      "--current-page-color",
-      current.getAttribute("data-color")
-    );
-  });
+  }
+  useEffect(()=>{
+    // to update scrollbar
+    window.scrollTo({top:window.scrollY + 1, behavior:"smooth"});
+  },[events])
+
   useEffect(()=>{
    getAllevents();
+  // setevents({data:oldeventdetails})
   },[])
 
   return (
     <>
       <Sidebar />
-      <div
-        data-color="#F8C456"
-       ref ={eventsRef}
-        className={styles["events-page-container"]}
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/home/background.jpg)`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          //   backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-            height: "100vh",
-            width:"100wh"
-        }}
-      >
+      <Layout 
+        dataColor="#F8C456"
+       >
         <div className={styles["header"]}>
           <h1 className={styles["events-page-heading"]}>EVENTS</h1>
           <div
@@ -62,7 +52,7 @@ const EventsHomePage = () => {
             return <EventCardNew data={element} />;
           })}
         </main>
-      </div>
+      </Layout>
     </>
   );
 };

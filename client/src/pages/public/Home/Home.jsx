@@ -18,6 +18,7 @@ import { ReactComponent as BackToTop } from "../../../svg/backtop-btn.svg";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Instagram from "@mui/icons-material/Instagram";
 import Twitter from "@mui/icons-material/Twitter";
+import LayoutPage from "../component/Layout/Layout";
 
 export default function Home() {
   const user = useSelector((state) => state.userinfo);
@@ -117,16 +118,7 @@ export default function Home() {
   // console.log("usedetail " ,user)
   return (
     <>
-      <div
-        className={styles["page"]}
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/home/background.jpg)`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
+      <LayoutPage>
         <div
           className={`${styles["fixed-logo"]} ${
             fixedLogoVisible && styles["fixed-logo-visible"]
@@ -223,7 +215,8 @@ export default function Home() {
         <div className={styles["section1"]} id="about">
           <About />
         </div>
-      </div>
+      </LayoutPage>
+
       {/* <div className={styles["page"]}>
         <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
       </div> */}
