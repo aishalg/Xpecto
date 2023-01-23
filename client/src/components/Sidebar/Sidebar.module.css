@@ -66,6 +66,7 @@
 }
 .scrollbar {
   position: absolute;
+  height: 0px;
   width: 4px;
   right: 0;
 }
