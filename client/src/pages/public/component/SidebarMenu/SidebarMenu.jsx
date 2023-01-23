@@ -87,19 +87,19 @@ function SidebarMenu() {
             </Link>
           </button>
           <button
-            style={{ "--animation-order": 2 }}
+            style={{ "--animation-order": 3 }}
             className={styles.sidebarBtn}
           >
             <Link smooth to="/profile" onClick={() => setSidebarOpen(false)}>
               PROFILE
             </Link>
           </button>
-          {/* <button
-            style={{ "--animation-order": 3 }}
+          <button
+            style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
           >
-            <Link to="/timeline">TIMELINE</Link>
-          </button> */}
+            <Link to="/events">EVENTS</Link>
+          </button>
           {/* <button
             style={{ "--animation-order": 4 }}
             className={styles.sidebarBtn}
@@ -110,7 +110,7 @@ function SidebarMenu() {
             style={{ "--animation-order": 5 }}
             className={styles.sidebarBtn}
           >
-            <Link to="/events">EVENTS</Link>
+            <Link to="/timeline">TIMELINE</Link>
           </button> */}
           {/* <button
             style={{ "--animation-order": 6 }}

@@ -14,12 +14,17 @@ const Sidebar = () => {
     const container = scrollContRef.current;
 
     const scrollFunc = () => {
-      const height = document.body.scrollHeight - window.innerHeight;
+      const height = document.body.scrollHeight;
+      if(height - window.innerHeight < 0) {
+        scrollbar.style.display = "none";
+        return;
+      };
+      scrollbar.style.display = "block";
       scrollbar.style.height = `${
         (window.innerHeight / height) * container.clientHeight
       }px`;
       scrollbar.style.marginTop = `${
-        (window.scrollY / height) *
+        (window.scrollY / (height - window.innerHeight)) *
         (container.clientHeight - scrollbar.clientHeight)
       }px`;
     };
