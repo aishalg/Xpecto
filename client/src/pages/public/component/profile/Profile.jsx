@@ -2,6 +2,7 @@ import { style } from "@mui/system";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import styles from "./Profile.module.css";
+import Sidebar from "../SidebarMenu/SidebarMenu";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -32,6 +33,8 @@ useEffect(()=>{
   getprofiledata();
 },[])
     return (
+      <>
+            {/* <Sidebar/> */}
       <div className={styles["pback"]}>
       <div className={styles["containers"]}>
       <div className={styles["card-container"]}>
@@ -46,6 +49,7 @@ useEffect(()=>{
     </div>
     
     </div>
+    </>
     )
 };
 

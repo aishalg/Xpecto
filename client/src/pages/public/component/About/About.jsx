@@ -38,9 +38,8 @@ export default function About() {
       >
         <p className={style["heading1"]}>ABOUT US</p>
         <p className={style["aboutcontent"]}>
-          XPECTO’23 is the second edition of IIT Mandi’s afresh Inter College
-          Technical Fest organized by the Science and Technical Council (SNTC),
-          IIT Mandi. 
+          <br/>
+          XPECTO’23 is the second edition of IIT Mandi’s afresh Inter College Technical Fest, organised by the Science and Technical Council (SNTC) at IIT Mandi. 
           <br />
           <br />
           XPECTO’22 envisioned a platform where our nation’s astute

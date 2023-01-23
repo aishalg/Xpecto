@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Razorpay from "../component/payment/Razorpay";
+// import Razorpay from "../component/payment/Razorpay";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Sidebar from "../../../components/Sidebar/Sidebar";
@@ -27,7 +27,6 @@ export default function Home() {
     try {
       const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
       const { data } = await axios.get(url, { withCredentials: true });
-      console.log("data after signin ", data);
       setnewuser((newuser) => ({
         ...newuser,
         email: data.data.email,
@@ -35,12 +34,10 @@ export default function Home() {
         image: data.data.image,
         firstname: data.data.firstName,
       }));
-      console.log("newuser ", newuser);
       const d = (newuser) => {
         dispatch(action.changeuserinfo(newuser));
       };
       d(newuser);
-      console.log("Now user info from redux ", user);
       setisuser(true);
       if (data.isnewuser) {
         setbool(true);
@@ -63,9 +60,9 @@ export default function Home() {
   }, [isuser, user]);
 
   // const usera = userDetails.user;
-  const logout = () => {
-    window.open(`${process.env.REACT_APP_BACKENDURL}/auth/logout`, "_self");
-  };
+  // const logout = () => {
+  //   window.open(`${process.env.REACT_APP_BACKENDURL}/auth/logout`, "_self");
+  // };
   const googleAuth = async () => {
     window.open(
       `${process.env.REACT_APP_BACKENDURL}/auth/google/callback`,
@@ -180,30 +177,40 @@ export default function Home() {
             src={`${process.env.PUBLIC_URL}/home/register.svg`}
             alt="register"
           />
+          {/* <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
+      <img
+            className={styles["section1-register"]}
+            src={`${process.env.PUBLIC_URL}/home/register.svg`}
+            alt="register"
+          />
+      </Button> */}
         </div>
         <div className={styles["section1"]} id="about">
           <About />
         </div>
-        <div style={{ height: "300vh" }}></div>
       </div>
-      <div className={styles["page"]}>
+      {/* <div className={styles["page"]}>
         <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
-      </div>
-      <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
-        Sign in google
-      </Button>
-      <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
+      </div> */}
+      {/* <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
+      <img
+            className={styles["section1-register"]}
+            src={`${process.env.PUBLIC_URL}/home/register.svg`}
+            alt="register"
+          />
+      </Button> */}
+      {/* <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
         Login with google
       </Button>
       <Button variant="outlined" onClick={logout} sx={{ m: 5 }}>
         Logout
-      </Button>
-      <h1>Name : {user.firstname}</h1>
-      <h1>Name : {user.email}</h1>
+      </Button> */}
+      {/* <h1>Name : {user.firstname}</h1>
+      <h1>Name : {user.email}</h1> */}
       {/* <button onClick={(nav())}> got got </button> */}
-      <div>
+      {/* <div>
         <Razorpay />
-      </div>
+      </div> */}
     </>
   );
 }
