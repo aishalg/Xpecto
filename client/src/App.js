@@ -66,7 +66,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<Home />}/>
-          <Route path="/admin/dashboard" element={<Dashboard />} />
+          {/* <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/event" element={<Eventadmin />} />
           <Route path="/admin/faq" element={<Faq />} />
           <Route path="/admin/webinar" element={<Webinar />} />
@@ -74,7 +74,7 @@ function App() {
           <Route path="/admin/sponsor" element={<Sponsor />} />
           <Route path="/admin/teamMember" element={<TeamMember />} />
           <Route path="/admin/keytalk" element={<Keytalk />} />
-          <Route path="/admin/contacts" element={<Contacts />} />
+          <Route path="/admin/contacts" element={<Contacts />} /> */}
         </Routes>
       </BrowserRouter>
       {/* <Layout> */}
