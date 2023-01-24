@@ -32,6 +32,8 @@ const eventSchema = mongoose.Schema({
     rulebook_link: {
         type: String,
         required: true,
+        default:""
+
     },
 
     description: {
@@ -42,6 +44,12 @@ const eventSchema = mongoose.Schema({
     problemset_link: {
         type: String,
         required: true,
+        default:""
+
+    },
+    submission_link: {
+        type: String,
+        default:""
     },
 
     createdAt: {
