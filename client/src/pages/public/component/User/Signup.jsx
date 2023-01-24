@@ -76,7 +76,7 @@ const navigate = useNavigate();
 </Grid>
        <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" padding={2}>  <TextField id="outlined-basic" required size="small" label="Lastname" value={newdata.lastname} onChange={signupchange}name="lastname"variant="outlined" />
 </Grid> */}
-       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center"padding={2}>  <TextField id="outlined-basic" size="small" label="Email" value={user.email} onChange={signupchange}name="email"variant="outlined" disabled/>
+       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center"padding={2}>  <TextField id="outlined-disabled" size="small" label="Email" value={user.email} onChange={signupchange}name="email"variant="outlined" disabled/>
 </Grid>
        <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center"padding={2}>  <TextField id="outlined-basic" required size="small" label="Phonenumber" value={newdata.phonenumber} onChange={signupchange}name="phonenumber"variant="outlined" />
 </Grid>

@@ -18,7 +18,6 @@ export default function EventOpen(props) {
       const url = `${process.env.REACT_APP_BACKENDURL}/api/events/${params.id}`;
       const data = await axios.get(url);
       seteventdata(data.data.data);
-      console.log(data.data.data);
     } catch {
       // go to 404 page
       navigate("/events");
