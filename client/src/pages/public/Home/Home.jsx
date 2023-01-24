@@ -80,11 +80,11 @@ export default function Home() {
           credential: cred,
         }
       );
-      console.log(resp);
+      // console.log(resp);
       localStorage.setItem("UserJwtToken", resp.data.jwtToken);
-      if (resp.data.isNewUser) {
+      // if (resp.data.isNewUser) {
         navigate("/signup");
-      }
+      // }
 
       window.location.reload(false);
     } catch (error) {
