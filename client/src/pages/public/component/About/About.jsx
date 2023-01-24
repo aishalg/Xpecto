@@ -17,7 +17,7 @@ const navigate = useNavigate();
       // console.log(top, bottom, window.screen.height,isElementVisible)
       if (midIntersecting || isElementVisible) {
         // console.log("here",midIntersecting)
-        document.body.styles.setProperty(
+        document.body.style.setProperty(
           "--current-page-color",
           current.getAttribute("data-color")
         );
