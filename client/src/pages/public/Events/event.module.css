@@ -13,7 +13,7 @@
 .event-main {
   /* background-color: black; */
   color: black;
-  margin:0px;
+  margin: 0px;
   padding: 30px;
   padding-left: 8%;
   padding-right: 8%;
@@ -24,11 +24,11 @@
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: -1px;
-  text-shadow: 1px 1.8px 3px #FAEA09;
-  color: #FAEA09;
+  text-shadow: 1px 1.8px 3px #faea09;
+  color: #faea09;
   margin-bottom: 20px;
 }
-.event-card{
+.event-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +36,7 @@
 .event-card hr {
   transform: scaleX(100%);
   transform-origin: left;
-  
+
   transition: transform 1s ease;
 }
 .event-card-invisible hr {
@@ -83,10 +83,11 @@
   border-style: solid;
   border-color: #2b29f9 transparent transparent transparent;
 }
-.event-club{
+.event-club {
   font-size: medium;
-  color:#FAEA09;
-text-align: start;}
+  color: #faea09;
+  text-align: start;
+}
 .event-prize-money {
   width: 100%;
 }
@@ -113,7 +114,7 @@ text-align: start;}
   border-radius: 100vw;
 }
 .event-desc::-webkit-scrollbar-thumb {
-  background: linear-gradient(#2b29f9,#FAEA09);
+  background: linear-gradient(#2b29f9, #faea09);
   border-radius: 100vw;
 }
 
@@ -163,13 +164,26 @@ text-align: start;}
   transition: transform 0.25s ease;
 }
 .event-register:hover {
-  background-color: #FAEA09;
+  background-color: #faea09;
   color: #000;
   transform: scale(1.05);
 }
-@media screen and (min-width:767px) {
-  .heading{
+@media (min-width: 200px) {
+  .heading {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 500px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 767px) {
+  .heading {
+    font-size: 3rem;
     margin-top: 60px;
     margin-bottom: 40px;
   }
 }
+
+

@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 export default function Updateevent(props) {
     const data=props.eventdetail
     const [newdata,setnewdata]=useState(data)
-    console.log("updateevent",data)
+    // console.log("updateevent",data)
     const handlechange=({currentTarget:input})=>{
       if(input.name ==="1price" || input.name==="2price" || input.name==="3price"){
         const price=newdata.prices;
@@ -38,12 +38,12 @@ export default function Updateevent(props) {
         e.preventDefault();
         const data=newdata;
         data.coordinators=coorlist;
-        console.log(id,"idfrontend")
+        // console.log(id,"idfrontend")
         try {
           const url=`${process.env.REACT_APP_BACKENDURL}/api/events/${id}`;
           const res=await axios.patch(url,data);
         } catch (error) {
-          console.log("ref eroor")
+          // console.log("ref eroor")
         }
       }
       const handleinputchange=(e,index)=>{

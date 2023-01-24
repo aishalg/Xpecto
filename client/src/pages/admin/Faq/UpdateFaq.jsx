@@ -55,7 +55,8 @@ export default function Updatefaq(props) {
   </Grid>
   </div>
 </Stack>
-  )}
+  )
+  }
   
 
 

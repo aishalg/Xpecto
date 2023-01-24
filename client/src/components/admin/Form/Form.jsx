@@ -58,7 +58,7 @@ function Form(props) {
             props.set(false)
             window.location.reload();
         }
-        console.log("success");
+        // console.log("success");
 
     }
 
