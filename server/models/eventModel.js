@@ -3,54 +3,45 @@ const mongoose = require("mongoose");
 const eventSchema = mongoose.Schema({
     club: {
         type: String,
-        required: true,
         default:""
     },
     info: {
         type: String,
-        required: true,
         default:""
     },
     name: {
         type: String,
-        required: true,
         unique: true,
         default:""
     },
 
     shortsummary: {
         type: String,
-        required: true,
         default:""
     },
 
     longsummary: {
         type: String,
-        required:true,
         default:""
     },
 
     event_image: {
         type: String,
-        required: true,
         default:""
     },
     rulebook_link: {
         type: String,
-        required: true,
         default:""
 
     },
 
     description: {
         type: String,
-        required: true,
         default:""
     },
 
     problemset_link: {
         type: String,
-        required: true,
         default:""
 
     },
@@ -84,17 +75,14 @@ const eventSchema = mongoose.Schema({
     prices: {
         first: {
             type: String,
-            required: true,
             default:""
         },
         second: {
             type: String,
-            required: true,
             default:""
         },
         third: {
             type: String,
-            required: true,
             default:""
         },
     },

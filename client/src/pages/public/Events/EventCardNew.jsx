@@ -9,9 +9,9 @@ const EventCardNew = (props) => {
             {props.data.name.toUpperCase()}
           </h2>
 
-          <h3 className={styles["event-tagline"]}>
+          {props.data.info!=="" && <h3 className={styles["event-tagline"]}>
             {props.data.info}
-          </h3>
+          </h3>}
           <a href={`/events/${props.data._id}`} className={styles["more-button"]}>MORE {">>>"}</a>
         </div>
       </div>
