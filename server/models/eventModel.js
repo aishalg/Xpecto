@@ -83,14 +83,17 @@ const eventSchema = mongoose.Schema({
         first: {
             type: String,
             required: true,
+            default:""
         },
         second: {
             type: String,
             required: true,
+            default:""
         },
         third: {
             type: String,
             required: true,
+            default:""
         },
     },
 
