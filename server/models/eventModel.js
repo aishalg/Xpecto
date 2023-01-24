@@ -4,30 +4,36 @@ const eventSchema = mongoose.Schema({
     club: {
         type: String,
         required: true,
+        default:""
     },
     info: {
         type: String,
         required: true,
+        default:""
     },
     name: {
         type: String,
         required: true,
         unique: true,
+        default:""
     },
 
     shortsummary: {
         type: String,
         required: true,
+        default:""
     },
 
     longsummary: {
         type: String,
-        required:true
+        required:true,
+        default:""
     },
 
     event_image: {
         type: String,
         required: true,
+        default:""
     },
     rulebook_link: {
         type: String,
@@ -39,6 +45,7 @@ const eventSchema = mongoose.Schema({
     description: {
         type: String,
         required: true,
+        default:""
     },
 
     problemset_link: {
@@ -54,28 +61,23 @@ const eventSchema = mongoose.Schema({
 
     createdAt: {
         type: String,
-     required:true 
        },
 
     start_time: {
         day: {
             type: String,
-            required: true,
         },
         time: {
             type: String,
-            required: true,
         },
     },
 
     end_time: {
         day: {
             type: String,
-            required: true,
         },
         time: {
             type: String,
-            required: true,
         },
     },
 
@@ -100,11 +102,11 @@ const eventSchema = mongoose.Schema({
     coordinators:[ {
             name: {
                 type: String,
-                required: true,
+                default:""
             },
             contact: {
                 type: String,
-                required: true,
+                default:""
             },
         
     }
@@ -121,10 +123,12 @@ const eventSchema = mongoose.Schema({
     teamMaxSize: {
         type: String,
         required: true,
+        default:""
     },
     teamMinSize: {
         type: String,
         required: true,
+        default:""
     },
 });
 ;
