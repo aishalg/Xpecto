@@ -3,13 +3,13 @@
 }
 
 .events-page-heading {
-  margin: 0;
+  margin: 40px;
   padding: 0;
   color: var(--main-color);
   text-align: left;
   font-size: 3rem;
-  padding: 2.5rem;
-  margin-left: 3rem;
+  /* padding: 2.5rem; */
+  /* margin-left: 3rem; */
   letter-spacing: 5px;
 }
 .events-page-teamsize{
@@ -79,4 +79,13 @@
 }
 .prize {
     font-size: medium;
+}
+@media screen and (max-width:767px) {
+  .events-page-heading{
+  /* padding-top: 40px; */
+  margin: 0px;
+  margin-top: 50px;
+  text-align: center;
+  /* display: none; */
+  }
 }
