@@ -1,5 +1,5 @@
 .sidebarBackdrop {
-  --sidebar-left-offset: 50px;
+  --sidebar-left-offset: 45px;
   position: fixed;
   top: 0;
   left: var(--sidebar-left-offset);

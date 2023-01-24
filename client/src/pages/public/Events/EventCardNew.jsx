@@ -10,9 +10,9 @@ const EventCardNew = (props) => {
           </h2>
 
           <h3 className={styles["event-tagline"]}>
-            Robots. Fighting. Pure Ecstasy!
+            {props.data.info}
           </h3>
-          <a className={styles["more-button"]}>MORE {">>>"}</a>
+          <a href={`/events/${props.data._id}`} className={styles["more-button"]}>MORE {">>>"}</a>
         </div>
       </div>
     </div>

@@ -20,7 +20,8 @@ import Instagram from "@mui/icons-material/Instagram";
 import Twitter from "@mui/icons-material/Twitter";
 import { GoogleLogin } from "@react-oauth/google";
 import BasicModal from "./BasicModal";
-import Modal from "@mui/material/Modal";
+import Modal from "@mui/material/Modal";import LayoutPage from "../component/Layout/Layout";
+
 export default function Home() {
   const user = useSelector((state) => state.userinfo);
   const dispatch = useDispatch();
@@ -167,16 +168,7 @@ export default function Home() {
   // console.log("usedetail " ,user)
   return (
     <>
-      <div
-        className={styles["page"]}
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/home/background.jpg)`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
+      <LayoutPage>
         <div
           className={`${styles["fixed-logo"]} ${
             fixedLogoVisible && styles["fixed-logo-visible"]
@@ -279,7 +271,8 @@ export default function Home() {
         <div className={styles["section1"]} id="about">
           <About />
         </div>
-      </div>
+      </LayoutPage>
+
       {/* <div className={styles["page"]}>
         <Link to="/admin/dashboard">Go to Admin Dashboard</Link>
       </div> */}

@@ -22,6 +22,7 @@ import Profile from "./pages/public/component/profile/Profile";
 // import { useSelector } from "react-redux";
 // import { useState } from "react";
 // import axios from "axios";
+import EventOpen from "./pages/public/Events/EventOpen";
 // import Navbar from "./components/admin/Navbar/Navbar";
 function App() {
   // const user = useSelector((state) => state.userinfo);
@@ -54,11 +55,12 @@ function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<EventsHomePage />} />
+          <Route path="/events/:id" element={<EventOpen />} />
           <Route path="/oldsponsors" element={<OldSponsor />} />
           <Route path="/oldevents" element={<Event />} />
           <Route path="/signup" element={<Signup />} />
