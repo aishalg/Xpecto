@@ -79,16 +79,26 @@ export default function EventOpen(props) {
                 Problem Statement
               </a>
             )}
+            <br />
+            {eventdata.submission_link !== "" && (
+              <a
+                className={styles["eventbutton"]}
+                href={eventdata.submission_link}
+                target="_blank"
+              >
+                submission_link
+              </a>
+            )}
           </div>
 
           <br />
           <div className={styles["prizes"]}>
-            <h2 className={styles["eventprize"]}>Prizes</h2>
-            <p className={styles["prize"]}>First : {eventdata.prices.first}</p>
-            <p className={styles["prize"]}>
-              Second : {eventdata.prices.Second}
-            </p>
-            <p className={styles["prize"]}>third : {eventdata.prices.third}</p>
+            <h2 className={styles["eventprize"]}>Prizes {  eventdata.pricesworth!=="" && <span>Worth :{eventdata.pricesworth}</span>}</h2>
+            {eventdata.prices.first !="" && <p className={styles["prize"]}>First : {eventdata.prices.first}</p>}
+            {eventdata.prices.second !="" && <p className={styles["prize"]}>
+              Second : {eventdata.prices.second}
+            </p>}
+            {eventdata.prices.third !="" && <p className={styles["prize"]}>third : {eventdata.prices.third}</p>}
           </div>
         </div>
       </LayoutPage>
