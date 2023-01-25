@@ -19,6 +19,7 @@ function LayoutPage({ children, dataColor }) {
         backgroundAttachment: "fixed",
       }}
     >
+      
       {children}
     </div>
   );

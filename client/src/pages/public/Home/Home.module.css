@@ -85,9 +85,11 @@ body {
   right: 0%;
   height: max(15vh, 20vw);
   aspect-ratio: 1 / 1;
+  z-index: 1000;
 }
 .fixed-logo-visible {
   display: unset;
+  /* background-color: red; */
 }
 
 .back-to-top {
