@@ -76,6 +76,11 @@ body {
   right: 6vw;
   bottom: max(10vh, 50px);
   width: max(15vw, 120px);
+  
+}
+
+.section1-register:hover{
+  cursor: pointer;
 }
 
 .fixed-logo {

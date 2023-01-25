@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.b9736a05.css",
+    "main.css": "/static/css/main.2793029e.css",
     "main.js": "/static/js/main.b61edc04.js",
     "static/media/background.jpg": "/static/media/background.abe945b916887ee0ac0c.jpg",
     "static/media/Android 101.ttf": "/static/media/Android 101.1bc6db32b397d97d519e.ttf",
@@ -10,11 +10,11 @@
     "static/media/navbar-top.svg": "/static/media/navbar-top.cd5f05c075e0f636cabb43f1b5d54019.svg",
     "static/media/navbar-middle.svg": "/static/media/navbar-middle.ae34b52709d0c996969cc105bf856b97.svg",
     "static/media/backtop-btn.svg": "/static/media/backtop-btn.ed65ea7299377714a61c7276e1103220.svg",
-    "main.b9736a05.css.map": "/static/css/main.b9736a05.css.map",
+    "main.2793029e.css.map": "/static/css/main.2793029e.css.map",
     "main.b61edc04.js.map": "/static/js/main.b61edc04.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9736a05.css",
+    "static/css/main.2793029e.css",
     "static/js/main.b61edc04.js"
   ]
 }
