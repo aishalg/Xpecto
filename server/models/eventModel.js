@@ -3,97 +3,98 @@ const mongoose = require("mongoose");
 const eventSchema = mongoose.Schema({
     club: {
         type: String,
-        required: true,
+        default:""
     },
     info: {
         type: String,
-        required: true,
+        default:""
     },
     name: {
         type: String,
-        required: true,
         unique: true,
+        default:""
     },
 
     shortsummary: {
         type: String,
-        required: true,
+        default:""
     },
 
     longsummary: {
         type: String,
-        required:true
+        default:""
     },
 
     event_image: {
         type: String,
-        required: true,
+        default:""
     },
     rulebook_link: {
         type: String,
-        required: true,
+        default:""
+
     },
 
     description: {
         type: String,
-        required: true,
+        default:""
     },
 
     problemset_link: {
         type: String,
-        required: true,
+        default:""
+
+    },
+    submission_link: {
+        type: String,
+        default:""
     },
 
     createdAt: {
         type: String,
-     required:true 
        },
 
     start_time: {
         day: {
             type: String,
-            required: true,
         },
         time: {
             type: String,
-            required: true,
         },
     },
 
     end_time: {
         day: {
             type: String,
-            required: true,
         },
         time: {
             type: String,
-            required: true,
         },
     },
 
     prices: {
         first: {
             type: String,
-            required: true,
+            default:""
         },
         second: {
             type: String,
-            required: true,
+            default:""
         },
         third: {
             type: String,
-            required: true,
+            default:""
         },
     },
 
     coordinators:[ {
             name: {
                 type: String,
-                required: true,
+                default:""
             },
             contact: {
                 type: String,
-                required: true,
+                default:""
             },
         
     }
@@ -110,10 +111,12 @@ const eventSchema = mongoose.Schema({
     teamMaxSize: {
         type: String,
         required: true,
+        default:""
     },
     teamMinSize: {
         type: String,
         required: true,
+        default:""
     },
 });
 ;

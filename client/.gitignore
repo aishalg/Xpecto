@@ -4,10 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
-
+client/.env
 # testing
 /coverage
-
+*.env
+.env
 # production
 /build
 
@@ -17,6 +18,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env.development
 
 npm-debug.log*
 yarn-debug.log*

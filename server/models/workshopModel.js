@@ -6,6 +6,10 @@ const workshopSchema = mongoose.Schema({
     type: String,
     required: [true, "Workshop must have a title"],
   },
+  summary: {
+    type: String,
+    trim: true,
+  },
   description: {
     type: String,
     trim: true,

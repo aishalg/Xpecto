@@ -8,12 +8,12 @@ import axios from 'axios';
 export default function Oneevent(props) {
     const handledelete=async(e,id)=>{
         // e.preventDefault();
-        console.log(id,"Delete")
+        // console.log(id,"Delete")
         try {
           const url=`${process.env.REACT_APP_BACKENDURL}/api/events/${id}`;
           const res=await axios.delete(url);
         } catch (error) {
-          console.log("ref eroor")
+        //   console.log("ref eroor")
         }        
 
     }

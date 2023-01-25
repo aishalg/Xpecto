@@ -24,8 +24,8 @@ useEffect(() => {
       );
       const data = await response.json();
       setAllevents(data.data);
-      console.log(data.data)
-      console.log(allevents,"mckdklm")
+      // console.log(data.data)
+      // console.log(allevents,"mckdklm")
     } catch (err) {
       console.log(err);
     }
