@@ -82,9 +82,9 @@ export default function Home() {
       );
       // console.log(resp);
       localStorage.setItem("UserJwtToken", resp.data.jwtToken);
-      // if (resp.data.isNewUser) {
+      if (resp.data.isNewUser) {
         navigate("/signup");
-      // }
+      }
 
       window.location.reload(false);
     } catch (error) {

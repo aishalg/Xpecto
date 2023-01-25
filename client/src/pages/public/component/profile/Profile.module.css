@@ -9,9 +9,14 @@
   position: fixed;
   top: 2%;
   right: 0%;
-  height: max(15vh, 20vw);
+  height: 170px;
   aspect-ratio: 1 / 1;
   z-index: 1000;
+}
+@media (max-width: 600px) {
+  .fixed-logo {
+    height: 150px;
+  }
 }
 .fixed-logo-visible {
   display: unset;

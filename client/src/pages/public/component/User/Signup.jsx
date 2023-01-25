@@ -11,28 +11,6 @@ import Sidebar from "../../../../components/Sidebar/Sidebar";
 import { ReactComponent as FixedLogo } from "../../../../svg/xpecto-logo.svg";
 
 export default function Signup() {
-  //        const user=useSelector((state)=>state.userinfo);
-  //        const navigate=useNavigate();
-  //   const [newdata,setnewdata]=useState(user)
-  //    const nav=()=>[
-  //        navigate("/")
-  //    ]
-  //    const savecurrentuser=async()=>{
-  //        try{
-  //               const url = `${process.env.REACT_APP_BACKENDURL}/api/user/signup`;
-  //               const  data  = await axios.post(url,{
-  //                 user:user.email,
-  //                 data:newdata
-  //               });
-  //               nav();
-  //          }catch{
-  //               console.log("data saved sifnufreb");
-  //         }
-  //    }
-
-  //   const signupchange=({currentTarget:input})=>{
-  //     setnewdata({...newdata,[input.name]:input.value});
-  //   }
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   useEffect(() => {
@@ -126,7 +104,7 @@ export default function Signup() {
                     required
                     size="small"
                     label="Phonenumber"
-                    value={newdata.phonenumber}
+                    value={newdata.phoneNumber}
                     onChange={signupchange}
                     name="phonenumber"
                     variant="outlined"
@@ -148,9 +126,9 @@ export default function Signup() {
                     required
                     size="small"
                     label="Collegename"
-                    value={newdata.collegename}
+                    value={newdata.collegeName}
                     onChange={signupchange}
-                    name="collegename"
+                    name="collegeName"
                     variant="outlined"
                   />
                 </Grid>
@@ -213,9 +191,9 @@ export default function Signup() {
                     id="outlined-basic"
                     size="small"
                     label="Referral-code"
-                    value={newdata.referralcode}
+                    value={newdata.referralCode}
                     onChange={signupchange}
-                    name="referralcode"
+                    name="referralCode"
                     variant="outlined"
                   />
                 </Grid>

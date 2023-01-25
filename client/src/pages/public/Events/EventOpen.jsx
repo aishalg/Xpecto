@@ -60,7 +60,7 @@ export default function EventOpen(props) {
           <p className={styles["eventdesc"]}>{eventdata.description}</p>
           <br />
           <div className={styles["event-btns"]}>
-            {eventdata.rulebook_link !== "" && (
+            {eventdata.rulebook_link ? (
               <a
                 className={styles["eventbutton"]}
                 href={eventdata.rulebook_link}
@@ -68,37 +68,58 @@ export default function EventOpen(props) {
               >
                 Rulebook
               </a>
+            ) : (
+              ""
             )}
             <br />
-            {eventdata.problemset_link !== "" && (
+            {eventdata.problemset_link ? (
               <a
                 className={styles["eventbutton"]}
-                href={eventdata.rulebook_link}
+                href={eventdata.problemset_link}
                 target="_blank"
               >
                 Problem Statement
               </a>
+            ) : (
+              ""
             )}
             <br />
-            {eventdata.submission_link !== "" && (
+            {eventdata.submission_link ? (
               <a
                 className={styles["eventbutton"]}
                 href={eventdata.submission_link}
                 target="_blank"
               >
-                submission_link
+                Submission Link
               </a>
+            ) : (
+              ""
             )}
           </div>
 
           <br />
+            <h2 className={styles["eventprize"]}>
+              Prizes{" "}
+              {eventdata.pricesworth !== "" && (
+                <span>Worth :{eventdata.pricesworth}</span>
+              )}
+            </h2>
           <div className={styles["prizes"]}>
-            <h2 className={styles["eventprize"]}>Prizes {  eventdata.pricesworth!=="" && <span>Worth :{eventdata.pricesworth}</span>}</h2>
-            {eventdata.prices.first !="" && <p className={styles["prize"]}>First : {eventdata.prices.first}</p>}
-            {eventdata.prices.second !="" && <p className={styles["prize"]}>
-              Second : {eventdata.prices.second}
-            </p>}
-            {eventdata.prices.third !="" && <p className={styles["prize"]}>third : {eventdata.prices.third}</p>}
+            {eventdata.prices.first != "" && (
+              <p className={styles["prize"]}>
+                First : {eventdata.prices.first}
+              </p>
+            )}
+            {eventdata.prices.second != "" && (
+              <p className={styles["prize"]}>
+                Second : {eventdata.prices.second}
+              </p>
+            )}
+            {eventdata.prices.third != "" && (
+              <p className={styles["prize"]}>
+                third : {eventdata.prices.third}
+              </p>
+            )}
           </div>
         </div>
       </LayoutPage>

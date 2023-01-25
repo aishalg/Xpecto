@@ -46,12 +46,13 @@
 .more-button {
   position: absolute;
   right: 5px;
-  bottom: -2rem;
+  bottom: -2.75rem;
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
   padding: 5px 20px 1px 20px;
   background-color: #f8c456;
   color: #0d0e10;
   font-size: 15px;
+  text-decoration: none;
 }
 @media (max-width: 600px) {
   .event-name {
