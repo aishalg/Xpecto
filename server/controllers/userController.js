@@ -16,15 +16,10 @@ exports.getOneUser = async (req, res, next) => {
 };
 exports.updateUserDetails = async (req, res, next) => {
   try {
-
-    const updatedUser = await User.updateOne(
-      { _id: req.user._id },
-      { phoneNumber: req.body.phonenumber, collegeName: req.body.collegename },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+    const updatedUser = await User.updateOne({ _id: req.user._id }, req.body, {
+      new: true,
+      runValidators: true,
+    });
 
     // send response
     res.status(200).json({
