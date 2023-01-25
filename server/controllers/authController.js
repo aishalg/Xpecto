@@ -7,7 +7,7 @@ exports.loginsuccess = async (req, res) => {
   if (req.user) {
     // console.log("user id:               ",req.user.emails[0].value)
     const userinfo = await User.findOne({ email: req.user.emails[0].value });
-    console.log("userinfo", userinfo);
+    // console.log("userinfo", userinfo);
     var newuser = false;
     const userdetail = req.user;
     if (userinfo == null) {
@@ -92,7 +92,7 @@ exports.login = async (req, res, next) => {
   try {
     const oAuth2Client = new OAuth2Client();
 
-    console.log(process.env.GOOGLE_CLIENT_ID);
+    // console.log(process.env.GOOGLE_CLIENT_ID);
     const result = await oAuth2Client.verifyIdToken({
       idToken: req.body.credential,
       expectedAudience: process.env.GOOGLE_CLIENT_ID,

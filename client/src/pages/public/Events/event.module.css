@@ -5,7 +5,7 @@
   right: 0%;
   height: max(15vh, 20vw);
   aspect-ratio: 1 / 1;
-  z-index: 2;
+  z-index: 1000;
 }
 .fixed-logo-visible {
   display: unset;
@@ -22,7 +22,7 @@
   font-size: 4rem;
   text-align: center;
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: -1px;
   text-shadow: 1px 1.8px 3px #faea09;
   color: #faea09;

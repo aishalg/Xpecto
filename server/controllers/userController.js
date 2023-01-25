@@ -55,7 +55,7 @@ exports.profilepage = async (req, res) => {
   try {
     const useremail = req.body.user;
     const data = await User.findOne({ email: useremail });
-    console.log("vnjdnv", data);
+    // console.log("vnjdnv", data);
     res.status(200).json({
       status: "success",
       message: "Data saved Successfuly",
@@ -75,14 +75,14 @@ const filterObj = (obj, ...restrictedFields) => {
   Object.keys(obj).forEach((el) => {
     if (!restrictedFields.includes(el)) newObj[el] = obj[el];
   });
-  console.log(obj);
+  // console.log(obj);
   return newObj;
 };
 
 exports.getOneUser = async (req, res, next) => {
   try {
     const usr = req.user;
-    console.log(usr);
+    // console.log(usr);
     res.status(200).json({
       status: "success",
       user: usr,
@@ -97,7 +97,7 @@ exports.getOneUser = async (req, res, next) => {
 exports.updateUserDetails = async (req, res, next) => {
   try {
     // Filtered out unwanted fields names that are not allowed to be updated
-    console.log(req.body);
+    // console.log(req.body);
     const updatedUser = await User.updateOne(
       { _id: req.user._id },
       { phoneNumber: req.body.phonenumber, collegeName: req.body.collegename },

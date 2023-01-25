@@ -14,7 +14,7 @@ exports.getEvents=async(req,res)=>{
 }
 
 exports.getEvent=async(req,res)=>{
-    console.log(">>",req.params)
+    // console.log(">>",req.params)
     try {
         const event= await Event.findOne({_id: req.params.id});
     context={
@@ -34,13 +34,13 @@ exports.addevent=async(req,res)=>{
         res.status(200).json({status:"success"})
     } catch (error) {
         res.status(400).json({Error:error});
-        console.log("Erorr occure at event added") 
+        // console.log("Erorr occure at event added") 
     }
 }
 
 exports.updateEvent=async(req,res)=>{
     try {
-        console.log(req.body,"bodu")
+        // console.log(req.body,"bodu")
         const data=req.body;
         // console.log(data)
         const newdata={

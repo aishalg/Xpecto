@@ -3,7 +3,8 @@
 }
 
 .events-page-heading {
-  margin: 40px;
+  margin: 50
+  px;
   padding: 0;
   color: var(--main-color);
   text-align: left;
@@ -31,6 +32,7 @@
   right: 0%;
   height: max(15vh, 20vw);
   aspect-ratio: 1 / 1;
+  z-index: 1000;
 }
 .fixed-logo-visible {
   display: unset;

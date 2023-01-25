@@ -68,13 +68,9 @@ const navigate = useNavigate();
 </Grid>
        <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" padding={2}>  <TextField id="outlined-basic" required size="small" label="Lastname" value={newdata.lastname} onChange={signupchange}name="lastname"variant="outlined" />
 </Grid> */}
-       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" onClick={()=>{
-       navigate("/oldsponsors")
-       }}><div  className={styles["just"]}>Past Sponsors</div> 
+       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" ><a href='/oldsponsors' className={styles["just"]} >Past Sponsors</a> 
 </Grid>
-       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center" onClick={()=>{
-        navigate("/oldevents")
-       }}> <div  className={styles["just"]}>Past Events</div> 
+       <Grid  item xs={12}sm={6} md={6}display="flex" justifyContent="center" alignItems="center"> <a href='/oldevents' className={styles["just"]}>Past Events</a> 
 </Grid>
        
 

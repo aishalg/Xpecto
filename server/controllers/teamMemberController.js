@@ -57,7 +57,7 @@ exports.updateTeamMember = async (req, res) => {
         runValidators: true,
       }
     );
-    console.log(updateedTeamMember);
+    // console.log(updateedTeamMember);
     res.status(200).json({
       status: "success",
       data: updateedTeamMember,

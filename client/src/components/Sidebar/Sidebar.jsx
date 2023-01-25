@@ -18,6 +18,7 @@ const Sidebar = () => {
       <div className={`${styles["navbar-top"]} ${styles["navbar"]}`}>
         <NavbarSvgTop />
         <div className={styles["hamburger-menu"]}>
+      <div className={styles["blur-strip"]}></div>
           <SidebarMenu />
         </div>
       </div>

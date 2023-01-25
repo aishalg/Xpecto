@@ -11,6 +11,7 @@
   right: 0%;
   height: max(15vh, 20vw);
   aspect-ratio: 1 / 1;
+  z-index: 1000;
 }
 .fixed-logo-visible {
   display: unset;
@@ -148,7 +149,7 @@ footer a {
 
 .logout-button {
   position: absolute;
-  top: 25px;
+  top: 50px;
   left: 100px;
   color: black;
   background-color: #f8e856;
