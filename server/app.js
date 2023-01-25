@@ -55,7 +55,7 @@ app.use("/api/workshops", workshopRouter);
 app.use("/api/user", userRouter);
 
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
 
 // IF A ROUTE NOT AVAILABLE
