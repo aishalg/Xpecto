@@ -106,7 +106,7 @@ export default function Signup() {
                     label="Phonenumber"
                     value={newdata.phoneNumber}
                     onChange={signupchange}
-                    name="phonenumber"
+                    name="phoneNumber"
                     variant="outlined"
                   />
                 </Grid>
