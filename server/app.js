@@ -23,7 +23,8 @@ const app = express();
 // app.use(cors({origin: 'http://localhost:3000'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({origin:'*'}))
 
 // Development logging
 if (process.env.NODE_ENV === "development") {
@@ -34,14 +35,14 @@ if (process.env.NODE_ENV === "development") {
 
 
 //Cookies session
-app.use(cookieSession({
-    name:"session",
-    keys:["xpectoiitmandi"],
-    maxAge:24*60*60*100,
-}))
+// app.use(cookieSession({
+//     name:"session",
+//     keys:["xpectoiitmandi"],
+//     maxAge:24*60*60*100,
+// }))
 
-app.use(passport.initialize());
-app.use(passport.session()); 
+// app.use(passport.initialize());
+// app.use(passport.session()); 
 
 // app.use(
 //     cors({
