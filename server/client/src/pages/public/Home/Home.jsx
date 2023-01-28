@@ -33,46 +33,7 @@ export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // const getUser = async (props) => {
-  //   try {
-  //     const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
-  //     const { data } = await axios.get(url, { withCredentials: true });
-  //     setnewuser((newuser) => ({
-  //       ...newuser,
-  //       email: data.data.email,
-  //       displayname: data.data.displayName,
-  //       image: data.data.image,
-  //       firstname: data.data.firstName,
-  //     }));
-  //     const d = (newuser) => {
-  //       dispatch(action.changeuserinfo(newuser));
-  //     };
-  //     d(newuser);
-  //     setisuser(true);
-  //     if (data.isnewuser) {
-  //       setbool(true);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  //  if(data.isnewuser){
-  // 	navigate("/signup");
-  //  }
-  // useEffect(() => {
-  //   getUser();
-  //   const nav = () => {
-  //     if (bool) {
-  //       navigate("/signup");
-  //     }
-  //   };
-  //   nav();
-  // }, [isuser, user]);
-
-  // const usera = userDetails.user;
-  // const logout = () => {
-  //   window.open(`${process.env.REACT_APP_BACKENDURL}/auth/logout`, "_self");
-  // };
+  
   const loginSuccessHandler = async (cred) => {
     try {
       const resp = await axios.post(
@@ -81,7 +42,6 @@ export default function Home() {
           credential: cred,
         }
       );
-      // console.log(resp);
       localStorage.setItem("UserJwtToken", resp.data.jwtToken);
       if (resp.data.isNewUser) {
         navigate("/signup");
@@ -140,7 +100,6 @@ export default function Home() {
     };
   }, []);
 
-  // color change on scroll
   const mainLogoRef = useRef(null);
   useEffect(() => {
     const current = mainLogoRef.current;
@@ -300,13 +259,7 @@ export default function Home() {
           ) : (
             ""
           )}
-          {/* <Button variant="outlined" onClick={googleAuth} sx={{ m: 5 }}>
-      <img
-            className={styles["section1-register"]}
-            src={`${process.env.PUBLIC_URL}/home/register.svg`}
-            alt="register"
-          />
-      </Button> */}
+        
         </div>
         <motion.div
           initial={{ y: 150 }}
